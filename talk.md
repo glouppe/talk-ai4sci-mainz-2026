@@ -868,7 +868,7 @@ $$p(x | y) \propto p(x) \, p(y | x)$$
 
 I will leave you with the equation we started from.
 
-Molecules, knees, black holes, galaxies, the Black Sea, the rain over Belgium, the whole atmosphere. Very different problems, but always the same recipe. A prior for the physics of the system, a likelihood for the instrument, and a diffusion model to put the two together.
+Molecules, knees, black holes, galaxies, the Black Sea, the rain over Belgium, the whole atmosphere. Very different problems, but always the same recipe. A prior for the physics of the system, learned by a diffusion model. A likelihood for the instrument. And posterior sampling, which combines them.
 
 Thank you.
 
