@@ -671,7 +671,7 @@ Training a diffusion model on trajectories of length $L$ is too expensive for lo
 
 GiBBS redraws blocks of states from their exact local conditionals, in parallel. Unlike AR and AAO (SDA), it converges to the posterior.
 
-.footnote[Credits: Bodart, Andry and Rozet, under review at ICLR 2027.]
+.footnote[Credits: Bodart et al, under review at ICLR 2027.]
 
 ???
 
@@ -691,7 +691,7 @@ class: middle
 
 .center[Posterior samples of the trajectory, given $y$.]
 
-.footnote[Credits: Bodart, Andry and Rozet, under review at ICLR 2027.]
+.footnote[Credits: Bodart et al, under review at ICLR 2027.]
 
 ???
 
