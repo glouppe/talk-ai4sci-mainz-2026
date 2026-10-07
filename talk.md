@@ -809,13 +809,15 @@ We end with forecasting.
 
 Today, the best weather forecasts come from machine learning models, such as GenCast from Google DeepMind, itself a diffusion model. GenCast takes the current state of the atmosphere and produces the next one. It was trained for that, and only for that. It has never seen an observation.
 
-To forecast, however, we first need to know the current state, and we only know it through observations. This is data assimilation again, now running online, one step at a time.
+But a forecast is only as good as its starting point. Weather centers produce that starting point with data assimilation, running continuously. Every few hours, they take the last forecast, compare it with the new observations, and correct it. The corrected state, the analysis, starts the next forecast. This cycle has run for decades, with physical models and Gaussian assumptions.
 
-A particle filter does this with an ensemble of possible states. At each step, each state is moved forward with the forecaster, and corrected with the new observations. The correction is the posterior sampling of the beginning of the talk, with GenCast as the prior. Nothing is retrained.
+The question is whether a forecaster like GenCast can take part in this cycle, although it was never designed to.
+
+We use a particle filter, an ensemble version of this cycle. At each step, each state of the ensemble is moved forward with the forecaster, and corrected with the new observations. The correction is the posterior sampling of the beginning of the talk, with GenCast as the prior. Nothing is retrained.
 
 On the figure, the first row is the truth, the second is our filter, and the third is GenCast without observations. After a week, GenCast alone has drifted away from the real weather. The filter stays on track.
 
-So an existing forecaster, trained by someone else for another purpose, becomes a data assimilation system.
+So an existing forecaster, trained by someone else for another purpose, can run the forecast and analysis cycle of operational data assimilation.
 
 ---
 
