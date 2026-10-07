@@ -534,8 +534,8 @@ class: middle
 .avatars[![](figures/faces/elise.jpg)![](figures/faces/sacha-peters.jpg)![](figures/faces/xf.png)]
 
 .center[
-<video poster="figures/videos/marionette-era5_poster.jpg" muted loop autoplay playsinline style="height: 24.5em; max-width: 100%;">
-<source src="figures/videos/marionette-era5.mp4" type="video/mp4">
+<video poster="figures/videos/marionette-era5-v2_poster.jpg" muted loop autoplay playsinline style="height: 24.5em; max-width: 100%;">
+<source src="figures/videos/marionette-era5-v2.mp4" type="video/mp4">
 </video>
 ]
 
