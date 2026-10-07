@@ -248,6 +248,11 @@ class: middle
 
 .grid[
 .kol-1-4[&nbsp;]
+.kol-3-4[.flow.flow-right[Generation]]
+]
+
+.grid[
+.kol-1-4[&nbsp;]
 .kol-3-8[.center[.icons[![](figures/icons/galaxie.png)![](figures/icons/globe-terrestre.png)![](figures/icons/cellule-de-plante.png)]<br>.bold[Prior] $p(x)$]]
 .kol-3-8[.center[.icons[![](figures/icons/observatoire.png)![](figures/icons/satellite.png)![](figures/icons/microscope.png)]<br>.bold[Likelihood] $p(y | x)$]]
 ]
@@ -258,6 +263,7 @@ class: middle
 .kol-3-8[.center[3D structures of molecules]]
 .kol-3-8[.center[projection, microscope blur, noise]]
 ]
+
 .grid[
 .kol-1-4[.italic[MRI]]
 .kol-3-8[.center[full-resolution scans]]
@@ -278,6 +284,11 @@ class: middle
 .kol-3-8[.center[undistorted images of galaxies]]
 .kol-3-8[.center[lensing, telescope blur, noise]]
 ]
+]
+
+.grid[
+.kol-1-4[&nbsp;]
+.kol-3-4[.flow.flow-left[Inference]]
 ]
 
 ???
