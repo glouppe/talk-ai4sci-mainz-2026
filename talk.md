@@ -532,18 +532,11 @@ class: middle
 
 .avatars[![](figures/faces/elise.jpg)![](figures/faces/sacha-peters.jpg)![](figures/faces/xf.png)]
 
-.grid[
-.kol-1-2[
-.center.width-90[![](figures/mar-stations.png)]
-.center[Ground stations $y$]
-]
-.kol-1-2[
-<br><br><br>
-.center.red[TODO: posterior samples $x \sim p(x | \text{ERA5}, y)$]
-]
-]
+Posterior sampling conditions MARionette on measurements $y$ from the 14 stations of the Royal Meteorological Institute, which MAR cannot assimilate.
 
-Posterior sampling conditions MARionette on ground station measurements $y$, which MAR cannot assimilate.
+.bleed[![](figures/mar-posterior.png)]
+
+.center[August 5, 2021, 21:00. Posterior samples $x \sim p(x | \text{ERA5}, y)$ put the rain where the stations see it.]
 
 .footnote[Credits: Faulx, Peters et al, in preparation.]
 
@@ -551,7 +544,7 @@ Posterior sampling conditions MARionette on ground station measurements $y$, whi
 
 Because MARionette is a diffusion model, we can sample from its posterior given station measurements. The observation model of ground stations is simple. The measured value is the state at the station location, plus noise. Adding its likelihood score to MARionette's score yields posterior samples conditioned both on ERA5 and on the stations.
 
-MAR cannot do this, since it is driven by its boundaries only. The posterior samples move the rain bands where the stations see rain.
+MAR cannot do this, since it is driven by its boundaries only. Here, on the evening of August 5, 2021, one station in the center of the country records heavy rain. MAR and the prior sample miss it. The posterior sample places a rain band over that station, and slightly warms the temperature field where the stations are warmer. These results are preliminary, obtained with an earlier version of the model.
 
 For regional climate, the result is kilometer-scale weather over Belgium in seconds, as ensembles, and anchored to station measurements, which the regional model itself cannot do.
 
