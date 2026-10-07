@@ -616,9 +616,9 @@ class: middle
 
 .center.width-100[![](figures/sda.svg)]
 
-Score-based data assimilation (SDA) trains a diffusion model on short windows of states. If the dynamics are Markovian of order $k$, each state depends on the rest of the trajectory only through its $k$ neighbors on either side, so that
-$$\nabla\_{x\_i} \log p(x\_{1:L}) = \nabla\_{x\_i} \log p(x\_{i-k:i+k}).$$
-The score of a trajectory of any length $L$ is then assembled from window scores. For noisy trajectories $x\_{1:L}(t)$, this decomposition only holds approximately, and is accurate at low noise levels.
+SDA trains a diffusion model on short windows. For Markovian dynamics of order $k$,
+$$\nabla\_{x\_i} \log p(x\_{1:L}) = \nabla\_{x\_i} \log p(x\_{i-k:i+k}),$$
+which holds approximately for noisy trajectories at low noise levels.
 
 .footnote[Credits: [Rozet and Louppe](https://arxiv.org/abs/2306.10574), NeurIPS 2023 (arXiv:2306.10574).]
 
