@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inverting scientific images with deep generative models</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="./assets/fonts.css">
+    <link rel="stylesheet" href="./assets/katex.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/grid.css">
+  </head>
+  <body>
+    <script src="./assets/remark.min.js"></script>
+    <script src="./assets/katex.min.js"></script>
+    <script src="./assets/auto-render.min.js"></script>
+
+    <script>
+      // The deck is loaded with ?p=talk.md. Only Markdown files next to this page are accepted.
+      var deck = new URLSearchParams(window.location.search).get("p");
+
+      function message(text) {
+        return "class: middle, center, title-slide\n\n# Inverting scientific images with deep generative models\n\n" + text;
+      }
+
+      function start(source) {
+        remark.create({source: source, highlightStyle: "tomorrow"}, function () {
+          renderMathInElement(document.body, {
+            delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "$", right: "$", display: false},
+              {left: "\\[", right: "\\]", display: true},
+              {left: "\\(", right: "\\)", display: false},
+            ]
+          });
+        });
+      }
+
+      if (!deck) {
+        start(message("No deck specified.\n\nUse `?p=talk.md` to load the talk."));
+      } else if (!/^[\w.-]+\.md$/.test(deck)) {
+        start(message("Invalid deck name."));
+      } else {
+        fetch(deck)
+          .then(function (response) {
+            if (!response.ok) throw new Error(response.status + " " + response.statusText);
+            return response.text();
+          })
+          .then(start, function (error) {
+            start(message("Could not load `" + deck + "` (" + error.message + ")."));
+          });
+      }
+    </script>
+  </body>
+</html>
