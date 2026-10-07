@@ -552,6 +552,29 @@ For regional climate, the result is kilometer-scale weather over Belgium in seco
 
 ---
 
+class: middle
+count: false
+
+.avatars[![](figures/faces/elise.jpg)![](figures/faces/sacha-peters.jpg)![](figures/faces/xf.png)]
+
+.center.width-90[![](figures/mar-posterior-2.png)]
+
+.center[Posterior sampling conditioned on 14 weather stations $y$ (dots),<br>which MAR cannot assimilate.]
+
+.footnote[Credits: Faulx, Peters et al, in preparation.]
+
+???
+
+(Slide 27b, alternative to slide 27.)
+
+Because MARionette is a diffusion model, we can sample from its posterior given station measurements. The observation model of ground stations is simple. The measured value is the state at the station location, plus noise. MAR cannot do this, since it is driven by its boundaries only.
+
+Here is the evening of October 30, 2007, 2 m temperature. ERA5 at 19:00 and 01:00 bracket the window. Over the evening, the stations in the center and the east of the country cool down. The prior sample, which only sees ERA5, keeps the center mild. The posterior sample follows the stations and cools the center and the east, while keeping the fine-scale structure of the prior.
+
+For regional climate, the result is kilometer-scale weather over Belgium in seconds, as ensembles, and anchored to station measurements, which the regional model itself cannot do.
+
+---
+
 class: black-slide
 background-image: url(figures/satellite-crop.gif)
 background-size: cover
