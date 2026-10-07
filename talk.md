@@ -611,7 +611,9 @@ $$p(x\_{1:L} | y\_{1:L}) \propto p(x\_1) p(y\_1 | x\_1) \prod\_{i=2}^{L} p(x\_{i
 
 The atmosphere evolves from one state to the next, and each state is observed by our instruments. We want the posterior over whole trajectories, given all observations.
 
-Operational methods make Gaussian or linear assumptions. A diffusion prior over trajectories makes none.
+This problem is as old as numerical weather prediction. The methods used operationally today, such as 4D-Var and ensemble Kalman filters, rely on Gaussian or linear assumptions about the dynamics.
+
+In our group, we asked whether a diffusion prior over trajectories, which makes no such assumption, could do the job. The next slides show how we did it, in three steps.
 
 ---
 
@@ -629,7 +631,7 @@ and approximately so for noisy $x\_{1:L}(t)$. The score of a long trajectory is 
 
 ???
 
-Our first step was score-based data assimilation, SDA. We train a diffusion model on short windows of a trajectory. Because the dynamics are Markovian, each state only interacts with its close neighbors in time. So the score of a long trajectory can be assembled from the scores of short windows, all computed in parallel. This is exact for clean trajectories, and approximate for noisy ones. Then we sample from the posterior, as before.
+The first step is our score-based data assimilation, SDA. We train a diffusion model on short windows of a trajectory. Because the dynamics are Markovian, each state only interacts with its close neighbors in time. So the score of a long trajectory can be assembled from the scores of short windows, all computed in parallel. This is exact for clean trajectories, and approximate for noisy ones. Then we sample from the posterior, as before.
 
 ---
 
