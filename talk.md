@@ -757,7 +757,7 @@ An autoencoder compresses each atmospheric state $x$ 450 times into a latent sta
 
 Based on this idea, we built Appa, an extension of SDA on top of a latent diffusion model of atmospheric dynamics.
 
-A 500M-parameter autoencoder compresses each state 450 times. A 1B-parameter latent diffusion model generates latent trajectories. The decoder and the observation operator together form a nonlinear observation model in latent space, which we handle by linearization (see backup slide). This makes data assimilation possible at the scale of the whole Earth.
+A 500M-parameter autoencoder compresses each state 450 times. A 1B-parameter latent diffusion model generates latent trajectories. The decoder and the observation operator together form a nonlinear observation model in latent space, which we handle by linearization. This makes data assimilation possible at the scale of the whole Earth.
 
 ---
 
@@ -899,22 +899,3 @@ class: middle, center, end-slide
 count: false
 
 The end.
-
----
-
-class: middle
-count: false
-
-.avatars[![](figures/faces/gerome.jpg)![](figures/faces/sacha.jpg)![](figures/faces/frozet.jpg)![](figures/faces/victor.jpg)![](figures/faces/omer.jpg)![](figures/faces/mathias.jpg)![](figures/faces/elise.jpg)]
-
-## Latent posterior sampling
-
-The decoder $D(z)$ and the observation model $p(y|x) = \mathcal{N}(y; \mathcal{M}(x), \Sigma\_y)$ form a .bold[non-linear observation model] in the latent space $$p(y|z) = \mathcal{N}(y; \mathcal{A}(z), \Sigma\_y),$$
-where $\mathcal{A}(z) = \mathcal{M}(D(z))$ is the composition of the decoder and the observation operator.
-
-Sampling from the posterior requires the noise-perturbed likelihood $p(y|z\_t)$, which we approximate by linearization as
-$$p(y|z\_t) \approx \mathcal{N}(y; \mathcal{A}(\mathbb{E}[z|z\_t]), \Sigma\_y + A \mathbb{V}[z|z\_t] A^T),$$
-where $A$ is the Jacobian of $\mathcal{A}$ at $\mathbb{E}[z|z\_t]$.
-
-.footnote[Credits: [Andry et al](https://arxiv.org/abs/2504.18720), NeurIPS ML4PS workshop 2025 (arXiv:2504.18720).]
-
