@@ -618,7 +618,7 @@ $$p(x\_{1:L} | y\_{1:L}) \propto p(x\_1) p(y\_1 | x\_1) \prod\_{i=2}^{L} p(x\_{i
 
 ???
 
-The atmosphere evolves from one state to the next, and each state is observed by our instruments. We want the posterior over whole trajectories, given all observations.
+Formally, the atmosphere evolves from one state to the next, following a transition model, and each state is observed through an observation model. Data assimilation is the posterior over whole trajectories, given all observations.
 
 This problem is as old as numerical weather prediction. The methods used operationally today, such as 4D-Var and ensemble Kalman filters, rely on Gaussian or linear assumptions about the dynamics.
 
