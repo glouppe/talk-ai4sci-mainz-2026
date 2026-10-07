@@ -244,11 +244,13 @@ Given noisy observations $y$, estimate the posterior distribution $$p(x|y) \prop
 
 ???
 
-All these examples are the same problem. Measurements in science are neither direct nor perfect. They are noisy, limited in resolution, incomplete or indirect. We can only infer the states that could have produced them, and quantify our uncertainty.
+All these examples are the same problem.
 
-Formally, we want the posterior $p(x|y)$.
+On the left, a physical model, with parameters $\theta$, produces the state $x$ of the system, a cell, a galaxy, the Earth. On the right, an observation model, the instrument, turns this state into the observation $y$, through a microscope, a telescope or a satellite. Measurements are neither direct nor perfect. They are noisy, limited in resolution, incomplete or indirect.
 
-The problem is hard for two reasons. Our models of the world are forward models. They simulate observations from states, but they cannot be inverted directly. And the problem is ill-posed. There is no single solution, only a distribution of plausible ones.
+Both models run forward, from causes to effects. The inverse problem runs backward. Given $y$, we want the posterior $p(x|y)$ over the states that could have produced it. By Bayes' rule, it is proportional to the prior $p(x)$, given by the physical model, times the likelihood $p(y|x)$, given by the observation model.
+
+The problem is hard for two reasons. Forward models can simulate observations, but they cannot be inverted directly. And the problem is ill-posed. There is no single solution, only a distribution of plausible ones.
 
 ---
 
