@@ -811,13 +811,13 @@ Today, the best weather forecasts come from machine learning models, such as Gen
 
 But a forecast is only as good as its starting point. Weather centers produce that starting point with data assimilation, running continuously. Every few hours, they take the last forecast, compare it with the new observations, and correct it. The corrected state, the analysis, starts the next forecast. This cycle has run for decades, with physical models and Gaussian assumptions.
 
-The question is whether a forecaster like GenCast can take part in this cycle, although it was never designed to.
+The answer is yes. A forecaster alone is enough to run this cycle.
 
-We use a particle filter, an ensemble version of this cycle. At each step, each state of the ensemble is moved forward with the forecaster, and corrected with the new observations. The correction is the posterior sampling of the beginning of the talk, with GenCast as the prior. Nothing is retrained.
+We embed it in a particle filter, an ensemble of possible states that plays the role of the analysis. At each cycle, each member is moved forward by the forecaster, and conditioned on the new observations. That conditioning is the posterior sampling of the beginning of the talk, with GenCast as the prior. No retraining, no extra model, just the forecaster and the observations.
 
-On the figure, the first row is the truth, the second is our filter, and the third is GenCast without observations. After a week, GenCast alone has drifted away from the real weather. The filter stays on track.
+The figure shows the result. The first row is the truth. The second is our filter, cycling with realistic observations. The third is GenCast alone, without observations. After a week, GenCast alone has drifted away from the real weather. The filter stays on track.
 
-So an existing forecaster, trained by someone else for another purpose, can run the forecast and analysis cycle of operational data assimilation.
+So any diffusion-based forecaster, trained by someone else and for another purpose, can be turned into an operational data assimilation system.
 
 ---
 
