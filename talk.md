@@ -395,7 +395,9 @@ class: middle
 
 Instead, we keep the pretrained model and .bold[hijack] its sampling with the likelihood score,
 $$\text{d}x\_t = \Big[ f\_t x\_t - g\_t^2 \big( \underbrace{s\_\theta(x\_t, t)}\_{\text{pretrained prior}} + \underbrace{\nabla\_{x\_t} \log p(y | x\_t)}\_{\text{likelihood}} \big) \Big] \text{d}t + g\_t \text{d}w\_t.$$
-Since $\nabla\_{x\_t} \log p(x\_t | y) = \nabla\_{x\_t} \log p(x\_t) + \nabla\_{x\_t} \log p(y | x\_t)$, this reverse process follows the posterior score, and its samples are posterior samples $x \sim p(x | y)$.
+Since
+$$\nabla\_{x\_t} \log p(x\_t | y) = \nabla\_{x\_t} \log p(x\_t) + \nabla\_{x\_t} \log p(y | x\_t),$$
+this reverse process follows the posterior score, and its samples are posterior samples $x \sim p(x | y)$.
 
 .footnote[The likelihood score of the noisy state is intractable. Approximations include [DPS](https://arxiv.org/abs/2209.14687) (Chung et al, ICLR 2023) and [MMPS](https://arxiv.org/abs/2405.13712) (Rozet et al, NeurIPS 2024).]
 
