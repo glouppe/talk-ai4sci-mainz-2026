@@ -514,25 +514,6 @@ class: middle
 
 .avatars[![](figures/faces/elise.jpg)![](figures/faces/sacha-peters.jpg)![](figures/faces/xf.png)]
 
-.bleed[![](figures/mar-samples.png)]
-
-.center[MARionette samples $x \sim p(x | \text{ERA5})$]
-
-.footnote[Credits: Faulx, Peters et al, in preparation.]
-
-???
-
-MARionette is a diffusion model that emulates MAR over Belgium. Conditioned on ERA5, it generates hourly trajectories of all 41 MAR variables at 5 km, in seconds rather than hours.
-
-The samples are plausible fine-scale fields that are consistent with the coarse forcing, but differ from each other and from MAR. The position of the rain bands is not determined by ERA5. Daily precipitation errors drop from 2.8 mm/day for interpolated ERA5 to 1.7 mm/day, and 2 m temperature errors from 1.5 °C to 1.0 °C.
-
----
-
-class: middle
-count: false
-
-.avatars[![](figures/faces/elise.jpg)![](figures/faces/sacha-peters.jpg)![](figures/faces/xf.png)]
-
 .center[
 <video poster="figures/videos/marionette-era5_poster.jpg" muted loop autoplay playsinline style="height: 29em; max-width: 100%;">
 <source src="figures/videos/marionette-era5.mp4" type="video/mp4">
@@ -543,9 +524,11 @@ count: false
 
 ???
 
-(Slide 26b, alternative to slide 26.)
+MARionette is a diffusion model that emulates MAR over Belgium. Conditioned on ERA5, it generates hourly trajectories of all 41 MAR variables at 5 km, in seconds rather than hours.
 
-Ten days of July 2011 over Belgium. The top row is the ERA5 forcing, coarse and updated every six hours. Below, the regional model MAR and three MARionette samples, hourly and at 5 km. MARionette generates all variables jointly, including those that ERA5 does not provide as forcing, such as solar radiation. The samples agree on the large scales set by ERA5, and differ in the details, such as the position of individual showers.
+Here are ten days of July 2011. The top row is the ERA5 forcing, coarse and updated every six hours. Below are the regional model MAR and three MARionette samples, hourly and at 5 km. MARionette generates all variables jointly, including variables that are not among its forcings, such as downward solar radiation.
+
+The samples agree on the large scales set by ERA5, and differ from each other and from MAR in the details, such as the position of individual showers. These details are not determined by ERA5. Daily precipitation errors drop from 2.8 mm/day for interpolated ERA5 to 1.7 mm/day, and 2 m temperature errors from 1.5 °C to 1.0 °C.
 
 ---
 
