@@ -706,7 +706,7 @@ class: middle
 
 Here the observations only cover the middle of the trajectory. GiBBS keeps the vortices coherent all along. The all-at-once composition smooths them out, and the rollout drifts away.
 
-Long trajectories are one side of scale. The other side is the size of each state.
+So far, every state was a small 2D flow, a few thousand numbers. With SDA and GiBBS, we can now handle long trajectories of them. But the real atmosphere is not a small 2D flow.
 
 ---
 
@@ -722,7 +722,7 @@ At 0.25°, 6 variables on 13 pressure levels, hourly over two weeks, a trajector
 
 ???
 
-The next step is the whole Earth. At the resolution of modern weather models, a two-week trajectory of the atmosphere has about 27 billion variables. That is far beyond what a diffusion model can handle directly.
+At the resolution of modern weather models, a two-week trajectory of the atmosphere has about 27 billion variables. That is far beyond what a diffusion model can handle directly.
 
 ---
 
