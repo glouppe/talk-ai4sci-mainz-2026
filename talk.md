@@ -60,8 +60,6 @@ Thousands of noisy 2D projections $y$ of a molecule, in unknown orientations.
 
 First, structural biology. Cryo-electron microscopy images molecules frozen in ice. Each image is a 2D projection of the molecule, seen from an unknown angle, blurred by the microscope and buried in noise. The noise is unavoidable, because a stronger electron beam would destroy the sample. A typical dataset holds hundreds of thousands of such images. This is the observation $y$.
 
-What we want is the molecule behind these images.
-
 ---
 
 class: black-slide
@@ -78,7 +76,7 @@ The 3D structure $x$ of the molecule.
 
 ???
 
-And here is the molecule, in 3D. A ribosome of the malaria parasite, at near-atomic resolution. This is the state $x$. Every detail of it must be inferred from those noisy projections.
+What we want is the molecule behind these images. Here it is, in 3D. A ribosome of the malaria parasite, at near-atomic resolution. This is the state $x$. Every detail of it must be inferred from those noisy projections.
 
 ---
 
@@ -98,8 +96,6 @@ Undersampling k-space speeds up the scan but leaves aliased images $y$.
 
 Second, medical imaging. An MRI scan measures the image in Fourier space, line by line. To make scans faster, we measure only some of the lines, here one out of six. A naive reconstruction then gives these blurry, aliased images. This is the observation $y$.
 
-What we want is the knee behind these images.
-
 ---
 
 class: black-slide
@@ -116,7 +112,7 @@ The full-resolution scans $x$.
 
 ???
 
-And here is the full-resolution scan, the state $x$. The missing lines must be filled in, consistently with what a knee looks like.
+What we want is the knee behind these images. Here is the full-resolution scan, the state $x$. The missing lines must be filled in, consistently with what a knee looks like.
 
 ---
 
@@ -136,8 +132,6 @@ Satellites measure infrared radiances $y$, not the state of the atmosphere.
 
 Third, weather. Satellites do not measure the atmosphere directly. They measure radiation. Here, the infrared radiation seen by the geostationary satellites, at one instant. Cold cloud tops appear white. This is the observation $y$.
 
-What we want is the atmosphere behind these measurements.
-
 ---
 
 class: black-slide
@@ -154,7 +148,7 @@ The state $x$ of the atmosphere, here water vapour, wind, temperature and humidi
 
 ???
 
-And here is the atmosphere at that same instant, the state $x$, in 3D. We show four of its variables, water vapour, wind, temperature and humidity. Recovering this state from observations is called data assimilation. We will come back to it at the end of the talk.
+What we want is the atmosphere behind these measurements. Here it is, at that same instant, the state $x$, in 3D. We show four of its variables, water vapour, wind, temperature and humidity. Recovering this state from observations is called data assimilation. We will come back to it at the end of the talk.
 
 ---
 
@@ -174,8 +168,6 @@ A few radio telescopes across the Earth sample the Fourier transform $y$ of the 
 
 Fourth, radio astronomy. The Event Horizon Telescope combines radio telescopes all over the Earth, to image the black hole at the center of the galaxy M87. Each pair of telescopes measures one Fourier coefficient of the image. As the Earth rotates, these measurements trace these tracks. This is everything that was measured on one night in April 2017. This is the observation $y$, and most of the plane is empty.
 
-What we want is the image behind these measurements.
-
 ---
 
 class: black-slide
@@ -192,7 +184,7 @@ Images $x$ of M87*, all consistent with the data.
 
 ???
 
-And here is the black hole itself, or rather several images of it, all consistent with the same measurements. Each one is a possible state $x$. The ring is always there. The fine details are not.
+What we want is the image behind these measurements. Here is the black hole, or rather several images of it, all consistent with the same measurements. Each one is a possible state $x$. The ring is always there. The fine details are not.
 
 ---
 
@@ -212,8 +204,6 @@ A foreground galaxy distorts a background galaxy into an Einstein ring $y$.
 
 Fifth, cosmology. A massive galaxy in the foreground bends the light of a more distant galaxy into a ring, an Einstein ring. This noisy ring is the observation $y$.
 
-What we want is the galaxy behind the ring.
-
 ---
 
 class: black-slide
@@ -230,7 +220,7 @@ Undistorted images $x$ of the background galaxy, all consistent with the data.
 
 ???
 
-And here is the background galaxy, as it would look without the lens. Several plausible versions of it, each a possible state $x$. Lensed again, each of them reproduces the observed ring.
+What we want is the galaxy behind the ring. Here it is, as it would look without the lens. Several plausible versions of it, each a possible state $x$. Lensed again, each of them reproduces the observed ring.
 
 ---
 
