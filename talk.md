@@ -529,6 +529,27 @@ The samples are plausible fine-scale fields that are consistent with the coarse 
 ---
 
 class: middle
+count: false
+
+.avatars[![](figures/faces/elise.jpg)![](figures/faces/sacha-peters.jpg)![](figures/faces/xf.png)]
+
+.center[
+<video poster="figures/videos/marionette-era5_poster.jpg" muted loop autoplay playsinline style="height: 32em; max-width: 100%;">
+<source src="figures/videos/marionette-era5.mp4" type="video/mp4">
+</video>
+]
+
+.footnote[Credits: Faulx, Peters et al, in preparation.]
+
+???
+
+(Slide 26b, alternative to slide 26.)
+
+Ten days of July 2011 over Belgium. The top row is the ERA5 forcing, coarse and updated every six hours. Below, the regional model MAR and three MARionette samples, hourly and at 5 km. MARionette generates all variables jointly, including those that ERA5 does not provide as forcing, such as solar radiation. The samples agree on the large scales set by ERA5, and differ in the details, such as the position of individual showers.
+
+---
+
+class: middle
 
 .avatars[![](figures/faces/elise.jpg)![](figures/faces/sacha-peters.jpg)![](figures/faces/xf.png)]
 
