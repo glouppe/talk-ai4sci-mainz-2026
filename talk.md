@@ -616,9 +616,9 @@ class: middle
 
 .center.width-100[![](figures/sda.svg)]
 
-SDA trains a diffusion model on short windows. For Markovian dynamics of order $k$,
+SDA trains a diffusion model on short windows $x\_{i-k:i+k}$. For Markovian dynamics of order $k$,
 $$\nabla\_{x\_i} \log p(x\_{1:L}) = \nabla\_{x\_i} \log p(x\_{i-k:i+k}),$$
-which holds approximately for noisy trajectories at low noise levels.
+so the score of each state of a long trajectory is given by the window centered on it, and all windows are evaluated in parallel. This holds approximately for noisy trajectories at low noise levels.
 
 .footnote[Credits: [Rozet and Louppe](https://arxiv.org/abs/2306.10574), NeurIPS 2023 (arXiv:2306.10574).]
 
