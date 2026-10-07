@@ -78,7 +78,7 @@ The 3D structure $x$ of the molecule.
 
 ???
 
-The state $x$ is the 3D structure of the molecule, here the 80S ribosome of the malaria parasite, at near-atomic resolution. With a generative prior over density maps, CryoFM reconstructs this structure from the real particle images of this dataset.
+The state $x$ is the 3D structure of the molecule, here the 80S ribosome of the malaria parasite, at near-atomic resolution. Every atom of it must be inferred from these noisy projections.
 
 From molecules, we move up to the scale of the human body.
 
@@ -118,7 +118,7 @@ The full-resolution scans $x$.
 
 ???
 
-These are the full-resolution knee scans $x$ we want to recover. In our work, the diffusion prior over such scans was learned from undersampled measurements only, by expectation-maximization.
+The state $x$ is the full-resolution scan of the knee. The missing lines of k-space must be filled in, consistently with the anatomy.
 
 From the body, we move up to the scale of the planet.
 
@@ -158,7 +158,7 @@ The state $x$ of the atmosphere, here water vapour, wind, temperature and humidi
 
 ???
 
-The state $x$ is the full 3D state of the atmosphere at the same time, here represented by water vapour, surface wind, temperature and humidity from the ERA5 reanalysis. Recovering it from observations is data assimilation. We will come back to it at the end of the talk.
+The state $x$ is the full 3D state of the atmosphere at the same time, here represented by water vapour, surface wind, temperature and humidity. Recovering it from observations is data assimilation. We will come back to it at the end of the talk.
 
 Beyond the planet, we look at a black hole, 55 million light-years away.
 
@@ -198,7 +198,7 @@ Images $x$ of M87*, all consistent with the data.
 
 ???
 
-These are posterior samples of the image of M87*, from the real EHT data, under a diffusion prior trained on black hole simulations. Every one of them is consistent with the measurements. The ring is robust, the fine structure is not.
+The state $x$ is the image of M87*. These are several images, all consistent with the same measurements. The ring is robust, the fine structure is not.
 
 Further still, a galaxy seen through another galaxy.
 
@@ -238,7 +238,7 @@ Undistorted images $x$ of the background galaxy, all consistent with the data.
 
 ???
 
-These are posterior samples of the background galaxy before distortion, under a diffusion prior trained on images of galaxies. Lensed again, each of them reproduces the observed ring down to the noise level.
+The state $x$ is the background galaxy, as it would look without the lens. These are several plausible galaxies. Lensed again, each of them reproduces the observed ring down to the noise level.
 
 Five fields, five instruments, five very different pictures.
 
