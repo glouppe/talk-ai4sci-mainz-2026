@@ -794,7 +794,9 @@ class: middle
 
 ???
 
-Here is a week of reanalysis with Appa. Rows 1 and 4 are the truth. Rows 2 and 5 are the observations, satellite tracks and weather stations. Rows 3 and 6 are Appa's posterior samples.
+What Appa produces are, in effect, videos of the atmosphere. Each frame is the state of the whole planet at one hour, and the video is generated so that it agrees with everything we observed along the way.
+
+Here is one week. Rows 1 and 4 are the truth. Rows 2 and 5 are the observations, satellite tracks and weather stations, sparse and scattered. Rows 3 and 6 are Appa's videos, filled in everywhere, and consistent with those observations.
 
 ---
 
