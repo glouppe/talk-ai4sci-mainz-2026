@@ -318,7 +318,9 @@ $$\text{d} x\_t = f\_t x\_t \text{d}t + g\_t \text{d}w\_t.$$
 
 ???
 
-Diffusion models are deep generative models that learn to reverse a gradual noising process.
+Diffusion models are the representation we will use. Trained on the outputs of a simulator, or on data, they learn to generate new samples of the system. And, as we will see, their way of generating can be steered by an observation.
+
+They work by learning to reverse a gradual noising process.
 
 The forward process adds noise to the data until nothing but noise remains. It is described by a stochastic differential equation, where $x\_t$ is the perturbed sample at time $t$. On the left, the flow of the opening slides dissolves into noise. On the right, the density of a simple 1D distribution, two modes that merge into a single Gaussian, with a few sample paths.
 
