@@ -787,8 +787,6 @@ class: middle
 
 Here is a week of reanalysis with Appa. Rows 1 and 4 are the truth. Rows 2 and 5 are the observations, satellite tracks and weather stations. Rows 3 and 6 are Appa's posterior samples.
 
-Appa reconstructs what happened. A forecast needs to know what is happening now.
-
 ---
 
 class: middle
@@ -807,7 +805,7 @@ Diffusion-based forecasters such as GenCast sample the next state $p(x\_k | x\_{
 
 ???
 
-Weather forecasting now relies on large diffusion models, such as GenCast. They are trained to predict the next state from the current one. They know nothing about observations. Our point is that they can still assimilate data, in the same way as the priors of this talk, although they were not built for it.
+One last result, and maybe the most surprising. Weather forecasting now relies on large diffusion models, such as GenCast from Google DeepMind. They are trained to predict the next state from the current one, and they know nothing about observations. Yet they can assimilate data, in exactly the same way as the priors of this talk, although nobody built them for it.
 
 We use a particle filter, an ensemble of weighted states that tracks the current weather. At each step, we move each state forward with the forecaster, conditioned on the new observations. That conditioning is exactly the posterior sampling of the beginning of the talk. We did not train GenCast, and we do not need to.
 
