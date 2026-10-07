@@ -40,7 +40,7 @@ class: middle, black-slide, center
 
 Given $y$, we want to recover all plausible physical states $x$ that could have produced it. Here is one of them, the true flow. Many others are consistent with the same blocks. We want them all, as a distribution.
 
-Here are five examples from science, from the smallest scales to the largest.
+This toy flow is not an exception. The same question arises whenever an instrument stands between us and the system we study. Let me show you five examples, from the scale of molecules to the scale of galaxies. The first one is a molecule.
 
 ---
 
