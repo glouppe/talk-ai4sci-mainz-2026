@@ -40,7 +40,7 @@ class: middle, black-slide, center
 
 Given $y$, we want to recover all plausible physical states $x$ that could have produced it. Here is one of them, the true flow. Many others are consistent with the same blocks. We want them all, as a distribution.
 
-This toy flow is not an exception. The same question arises whenever an instrument stands between us and the system we study. Let me show you five examples, from the scale of molecules to the scale of galaxies. The first one is a molecule.
+This toy flow is not an exception. The same question arises whenever an instrument stands between us and the system we study. Let me show you five examples, from molecules to galaxies.
 
 ---
 
@@ -58,7 +58,7 @@ Thousands of noisy 2D projections $y$ of a molecule, in unknown orientations.
 
 ???
 
-Cryo-electron microscopy images biomolecules frozen in ice. Each particle image is a 2D projection of the molecule, in an unknown orientation, blurred by the microscope and buried in noise. The electron dose must stay low, or the sample is destroyed. A dataset contains hundreds of thousands of such images. They are the observation $y$, simulated here from a ribosome structure.
+First, structural biology. Cryo-electron microscopy images biomolecules frozen in ice. Each particle image is a 2D projection of the molecule, in an unknown orientation, blurred by the microscope and buried in noise. The electron dose must stay low, or the sample is destroyed. A dataset contains hundreds of thousands of such images. They are the observation $y$, simulated here from a ribosome structure.
 
 What we want is the molecule behind these images.
 
@@ -80,8 +80,6 @@ The 3D structure $x$ of the molecule.
 
 The state $x$ is the 3D structure of the molecule, here the 80S ribosome of the malaria parasite, at near-atomic resolution. Every atom of it must be inferred from these noisy projections.
 
-From molecules, we move up to the scale of the human body.
-
 ---
 
 class: black-slide
@@ -98,7 +96,7 @@ Undersampling k-space speeds up the scan but leaves aliased images $y$.
 
 ???
 
-To speed up MRI scans, only a fraction of k-space is measured, here one line out of six. Inverting these partial measurements naively gives blurry, aliased images. This is the observation $y$.
+Second, medical imaging. To speed up MRI scans, only a fraction of k-space is measured, here one line out of six. Inverting these partial measurements naively gives blurry, aliased images. This is the observation $y$.
 
 What we want is the knee behind these images.
 
@@ -120,8 +118,6 @@ The full-resolution scans $x$.
 
 The state $x$ is the full-resolution scan of the knee. The missing lines of k-space must be filled in, consistently with the anatomy.
 
-From the body, we move up to the scale of the planet.
-
 ---
 
 class: black-slide
@@ -138,7 +134,7 @@ Satellites measure infrared radiances $y$, not the state of the atmosphere.
 
 ???
 
-Weather satellites do not measure the state of the atmosphere. They measure radiances, here infrared brightness temperatures seen by the geostationary satellites on March 21, 2021, at midnight UTC. Cold cloud tops appear white. This is the observation $y$.
+Third, weather. Satellites do not measure the state of the atmosphere. They measure radiances, here infrared brightness temperatures seen by the geostationary satellites on March 21, 2021, at midnight UTC. Cold cloud tops appear white. This is the observation $y$.
 
 What we want is the atmosphere behind these radiances.
 
@@ -160,8 +156,6 @@ The state $x$ of the atmosphere, here water vapour, wind, temperature and humidi
 
 The state $x$ is the full 3D state of the atmosphere at the same time, here represented by water vapour, surface wind, temperature and humidity. Recovering it from observations is data assimilation. We will come back to it at the end of the talk.
 
-Beyond the planet, we look at a black hole, 55 million light-years away.
-
 ---
 
 class: black-slide
@@ -178,7 +172,7 @@ A few radio dishes across the Earth sample the Fourier transform $y$ of the imag
 
 ???
 
-The Event Horizon Telescope combines radio dishes across the Earth. Each pair of dishes measures one Fourier component of the image, and the rotation of the Earth sweeps these measurements along tracks. These are all the measurements of M87* collected on April 11, 2017. This is the observation $y$. Most of the Fourier plane is empty.
+Fourth, radio astronomy. The Event Horizon Telescope combines radio dishes across the Earth to image the black hole at the center of the galaxy M87. Each pair of dishes measures one Fourier component of the image, and the rotation of the Earth sweeps these measurements along tracks. These are all the measurements of M87* collected on April 11, 2017. This is the observation $y$. Most of the Fourier plane is empty.
 
 What we want is the image behind these measurements.
 
@@ -200,8 +194,6 @@ Images $x$ of M87*, all consistent with the data.
 
 The state $x$ is the image of M87*. These are several images, all consistent with the same measurements. The ring is robust, the fine structure is not.
 
-Further still, a galaxy seen through another galaxy.
-
 ---
 
 class: black-slide
@@ -218,7 +210,7 @@ A foreground galaxy distorts a background galaxy into an Einstein ring $y$.
 
 ???
 
-A massive foreground galaxy bends the light of a more distant galaxy into an Einstein ring. This noisy ring is the observation $y$, simulated here.
+Fifth, cosmology. A massive foreground galaxy bends the light of a more distant galaxy into an Einstein ring. This noisy ring is the observation $y$, simulated here.
 
 What we want is the galaxy behind the ring.
 
@@ -239,8 +231,6 @@ Undistorted images $x$ of the background galaxy, all consistent with the data.
 ???
 
 The state $x$ is the background galaxy, as it would look without the lens. These are several plausible galaxies. Lensed again, each of them reproduces the observed ring down to the noise level.
-
-Five fields, five instruments, five very different pictures.
 
 ---
 
