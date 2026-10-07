@@ -344,7 +344,11 @@ Simulating it from noise $x\_1$ to $t = 0$ generates samples $x\_0 \sim p(x)$.
 
 The time reversal of the forward process is again a stochastic differential equation. It involves the score of the perturbed data distribution at each time $t$.
 
-To generate data, we draw pure noise and simulate the reverse process down to $t = 0$. The noise is gradually removed, and the flow emerges.
+And this is how we generate data. We start from pure noise, a random draw that carries no information at all. Then we run the reverse process, step by step, back to $t = 0$. The noise is gradually removed, structure appears, and a flow emerges.
+
+This flow never existed. It is not a copy of a training example. It is a new sample, drawn from the distribution of all flows the model has learned. Every run starts from different noise, and gives a different, plausible flow.
+
+That is exactly what we wanted from a prior. A way to draw plausible states of the system, as many as we want.
 
 ---
 
