@@ -534,10 +534,12 @@ class: middle
 .avatars[![](figures/faces/elise.jpg)![](figures/faces/sacha-peters.jpg)![](figures/faces/xf.png)]
 
 .center[
-<video poster="figures/videos/marionette-era5_poster.jpg" muted loop autoplay playsinline style="height: 29em; max-width: 100%;">
+<video poster="figures/videos/marionette-era5_poster.jpg" muted loop autoplay playsinline style="height: 27em; max-width: 100%;">
 <source src="figures/videos/marionette-era5.mp4" type="video/mp4">
 </video>
 ]
+
+.center[MARionette, a diffusion model emulator of MAR, conditioned on ERA5.]
 
 .footnote[Credits: Faulx, Peters et al, in preparation.]
 
@@ -555,7 +557,7 @@ class: middle
 
 .bleed[![](figures/mar-posterior.png)]
 
-.center[Posterior sampling conditioned on 14 weather stations $y$,<br>which MAR cannot assimilate.]
+.center[MARionette conditioned on 14 weather stations $y$,<br>which MAR cannot assimilate.]
 
 .footnote[Credits: Faulx, Peters et al, in preparation.]
 
