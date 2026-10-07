@@ -23,6 +23,32 @@
         return "class: middle, center, title-slide\n\n# Inverting scientific images with deep generative models\n\n" + text;
       }
 
+      // Preload the images, background images and videos of all slides, in slide order,
+      // so that changing slides does not wait for the network.
+      function preload() {
+        var urls = [];
+        document.querySelectorAll(".remark-slide-content").forEach(function (slide) {
+          var bg = slide.style.backgroundImage.match(/url\(["']?([^"')]+)["']?\)/);
+          if (bg) urls.push(new URL(bg[1], document.baseURI).href);
+          slide.querySelectorAll("img").forEach(function (img) { urls.push(img.src); });
+          slide.querySelectorAll("video").forEach(function (video) {
+            video.preload = "auto";
+            if (video.poster) urls.push(video.poster);
+          });
+        });
+        urls = urls.filter(function (url, i) { return url && urls.indexOf(url) === i; });
+        window.preloaded = [];
+        var next = 0;
+        function load() {
+          if (next >= urls.length) return;
+          var img = new Image();
+          img.onload = img.onerror = load;
+          img.src = urls[next++];
+          window.preloaded.push(img);
+        }
+        for (var k = 0; k < 4; k++) load();   // four downloads at a time
+      }
+
       function start(source) {
         remark.create({source: source, highlightStyle: "tomorrow"}, function () {
           renderMathInElement(document.body, {
@@ -33,6 +59,7 @@
               {left: "\\(", right: "\\)", display: false},
             ]
           });
+          preload();
         });
       }
 
