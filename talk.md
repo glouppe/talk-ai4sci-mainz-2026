@@ -358,7 +358,7 @@ class: middle
 
 .center.width-90[![](figures/denoiser-y.svg)]
 
-To sample from the posterior $p(x|y)$, one can .bold[hard-wire] the observation $y$ as an additional input of the denoiser $d\_\theta(x\_t, t, y)$ and train it on pairs $(x, y)$.
+To sample from the posterior $p(x|\textcolor{#d62728}{y})$, one can .bold[hard-wire] the observation $\textcolor{#d62728}{y}$ as an additional input of the denoiser $d\_\theta(x\_t, t, \textcolor{#d62728}{y})$ and train it on pairs $(x, \textcolor{#d62728}{y})$.
 
 .alert[Every new instrument requires training a new network.]
 
