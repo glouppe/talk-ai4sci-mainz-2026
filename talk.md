@@ -60,6 +60,8 @@ Thousands of noisy 2D projections $y$ of a molecule, in unknown orientations.
 
 Cryo-electron microscopy images biomolecules frozen in ice. Each particle image is a 2D projection of the molecule, in an unknown orientation, blurred by the microscope and buried in noise. The electron dose must stay low, or the sample is destroyed. A dataset contains hundreds of thousands of such images. They are the observation $y$, simulated here from a ribosome structure.
 
+What we want is the molecule behind these images.
+
 ---
 
 class: black-slide
@@ -77,6 +79,8 @@ The 3D structure $x$ of the molecule.
 ???
 
 The state $x$ is the 3D structure of the molecule, here the 80S ribosome of the malaria parasite, at near-atomic resolution. With a generative prior over density maps, CryoFM reconstructs this structure from the real particle images of this dataset.
+
+From molecules, we move up to the scale of the human body.
 
 ---
 
@@ -96,6 +100,8 @@ Undersampling k-space speeds up the scan but leaves aliased images $y$.
 
 To speed up MRI scans, only a fraction of k-space is measured, here one line out of six. Inverting these partial measurements naively gives blurry, aliased images. This is the observation $y$.
 
+What we want is the knee behind these images.
+
 ---
 
 class: black-slide
@@ -113,6 +119,8 @@ The full-resolution scans $x$.
 ???
 
 These are the full-resolution knee scans $x$ we want to recover. In our work, the diffusion prior over such scans was learned from undersampled measurements only, by expectation-maximization.
+
+From the body, we move up to the scale of the planet.
 
 ---
 
@@ -132,6 +140,8 @@ Satellites measure infrared radiances $y$, not the state of the atmosphere.
 
 Weather satellites do not measure the state of the atmosphere. They measure radiances, here infrared brightness temperatures seen by the geostationary satellites on March 21, 2021, at midnight UTC. Cold cloud tops appear white. This is the observation $y$.
 
+What we want is the atmosphere behind these radiances.
+
 ---
 
 class: black-slide
@@ -149,6 +159,8 @@ The state $x$ of the atmosphere, here water vapour, wind, temperature and humidi
 ???
 
 The state $x$ is the full 3D state of the atmosphere at the same time, here represented by water vapour, surface wind, temperature and humidity from the ERA5 reanalysis. Recovering it from observations is data assimilation. We will come back to it at the end of the talk.
+
+Beyond the planet, we look at a black hole, 55 million light-years away.
 
 ---
 
@@ -168,6 +180,8 @@ A few radio dishes across the Earth sample the Fourier transform $y$ of the imag
 
 The Event Horizon Telescope combines radio dishes across the Earth. Each pair of dishes measures one Fourier component of the image, and the rotation of the Earth sweeps these measurements along tracks. These are all the measurements of M87* collected on April 11, 2017. This is the observation $y$. Most of the Fourier plane is empty.
 
+What we want is the image behind these measurements.
+
 ---
 
 class: black-slide
@@ -185,6 +199,8 @@ Images $x$ of M87*, all consistent with the data.
 ???
 
 These are posterior samples of the image of M87*, from the real EHT data, under a diffusion prior trained on black hole simulations. Every one of them is consistent with the measurements. The ring is robust, the fine structure is not.
+
+Further still, a galaxy seen through another galaxy.
 
 ---
 
@@ -204,6 +220,8 @@ A foreground galaxy distorts a background galaxy into an Einstein ring $y$.
 
 A massive foreground galaxy bends the light of a more distant galaxy into an Einstein ring. This noisy ring is the observation $y$, simulated here.
 
+What we want is the galaxy behind the ring.
+
 ---
 
 class: black-slide
@@ -221,6 +239,8 @@ Undistorted images $x$ of the background galaxy, all consistent with the data.
 ???
 
 These are posterior samples of the background galaxy before distortion, under a diffusion prior trained on images of galaxies. Lensed again, each of them reproduces the observed ring down to the noise level.
+
+Five fields, five instruments, five very different pictures.
 
 ---
 
@@ -390,6 +410,8 @@ We can therefore hijack the sampling of a pretrained diffusion model by adding t
 
 The likelihood score of the noisy state $x\_t$ is intractable, since it integrates over all clean states consistent with $x\_t$. Our approximation, MMPS, estimates the mean and covariance of $p(x | x\_t)$ with the denoiser.
 
+We now apply this recipe to three problems studied in our group, at increasing scale. We start in the ocean.
+
 ---
 
 class: black-slide
@@ -406,7 +428,7 @@ Since 1950, over 500 coastal sites have reported hypoxia, up from fewer than 50.
 
 ???
 
-Our first example comes from the ocean. Oxygen-depleted waters are spreading. Since 1950, more than 500 coastal sites have reported hypoxia, up from fewer than 50, and the open ocean has lost about 2% of its oxygen. Hypoxia kills bottom fauna, shrinks habitats and threatens fisheries.
+Oxygen-depleted waters are spreading. Since 1950, more than 500 coastal sites have reported hypoxia, up from fewer than 50, and the open ocean has lost about 2% of its oxygen. Hypoxia kills bottom fauna, shrinks habitats and threatens fisheries.
 
 On the northwestern shelf of the Black Sea, nutrients brought by the rivers fuel phytoplankton blooms, visible here from space. In summer, the water column is stratified. Organic matter sinks and decomposes, and the oxygen it consumes at the bottom is not renewed. Oxygen drops below 63 mmol/m³, and the bottom waters become hypoxic.
 
@@ -465,6 +487,8 @@ This does not mean the method fails. The posterior is wide because $y$ carries t
 
 For oceanography, the result is that satellites alone can detect a third of the summer hypoxic events of the Black Sea shelf, and that deeper waters will require subsurface observations.
 
+From the ocean, we move to the atmosphere, first over a single country.
+
 ---
 
 class: black-slide
@@ -508,6 +532,8 @@ On the left, precipitation from the global reanalysis ERA5, at 0.25°. On the ri
 
 MAR has three limits. It is slow. 100 years take two weeks on 100 CPUs, which rules out downscaling every member of a climate ensemble. It is deterministic. One forcing gives one field, although many fine-scale fields are consistent with the same coarse forcing. And it cannot assimilate observations.
 
+MARionette addresses all three.
+
 ---
 
 class: middle
@@ -549,6 +575,8 @@ Because MARionette is a diffusion model, we can sample from its posterior given 
 MAR cannot do this, since it is driven by its boundaries only. Here, on the evening of August 5, 2021, one station in the center of the country records heavy rain. MAR and the prior sample miss it. The posterior sample places a rain band over that station, and slightly warms the temperature field where the stations are warmer. These results are preliminary, obtained with an earlier version of the model.
 
 For regional climate, the result is kilometer-scale weather over Belgium in seconds, as ensembles, and anchored to station measurements, which the regional model itself cannot do.
+
+From one country, we now move to the whole planet.
 
 ---
 
@@ -694,6 +722,8 @@ class: middle
 
 The observations cover the central part of the domain, on one frame in three. GiBBS keeps the vortices coherent over the whole trajectory. AAO smooths them out, and AR diverges as errors accumulate.
 
+Long trajectories are one side of scale. The other is the size of each state.
+
 ---
 
 class: black-slide
@@ -776,6 +806,8 @@ class: middle
 ???
 
 A reanalysis with Appa, for a few variables. Rows 1 and 4 are the ERA5 ground truth. Rows 2 and 5 are the observations, satellite tracks and weather stations. Rows 3 and 6 are posterior samples from Appa.
+
+Appa reconstructs what happened. Forecasting needs what is happening now.
 
 ---
 
