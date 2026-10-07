@@ -616,9 +616,9 @@ class: middle
 
 .center.width-100[![](figures/sda.svg)]
 
-SDA trains a diffusion model on short windows. For order-$k$ Markovian dynamics,
-$$\nabla\_{x\_i} \log p(x\_{1:L}) \approx \nabla\_{x\_i} \log p(x\_{i-k:i+k}),$$
-so windows centered on each state compose the score of a long trajectory, for posterior sampling as before.
+SDA trains a diffusion model on short windows. If the dynamics are Markovian,
+$$\nabla\_{x\_i} \log p(x\_{1:L}) \approx \nabla\_{x\_i} \log p(x\_{i-k:i+k}).$$
+The score of a long trajectory is thus assembled from short windows, and posterior sampling proceeds as before.
 
 .footnote[Credits: [Rozet and Louppe](https://arxiv.org/abs/2306.10574), NeurIPS 2023 (arXiv:2306.10574).]
 
