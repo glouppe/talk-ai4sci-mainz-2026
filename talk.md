@@ -337,7 +337,7 @@ class: middle
 
 .center.width-90[![](figures/denoiser.svg)]
 
-The score is unknown. We train a neural denoiser $d\_\theta(x\_t, t)$ to recover $x$ from $x\_t$,
+The score is unknown, but can be approximated with a neural denoiser $d\_\theta(x\_t, t)$ trained to recover $x$ from $x\_t$,
 $$\min\_\theta \\, \mathbb{E}\_{p(t)p(x)p(x\_t|x)} \left[ || d\_\theta(x\_t, t) - x ||^2\_2 \right].$$
 The optimal denoiser is $\mathbb{E}[x | x\_t]$, which gives the score by Tweedie's formula,
 $$\nabla\_{x\_t} \log p(x\_t) = \Sigma\_t^{-1}(\mathbb{E}[x | x\_t] - x\_t) \approx \Sigma\_t^{-1}(d\_\theta(x\_t, t) - x\_t) = s\_\theta(x\_t, t).$$
