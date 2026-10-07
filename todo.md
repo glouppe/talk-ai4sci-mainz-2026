@@ -4,7 +4,7 @@ Slide numbers are the page numbers shown in the deck (`n / 42`).
 
 ## Must fix
 
-- [ ] **M1.** Slide 28: replace the TODO placeholder with MARionette posterior samples $x \sim p(x \mid \text{ERA5}, y)$ (ground stations). Same layout as slide 27.
+- [x] **M1.** Slide 28: replace the TODO placeholder with MARionette posterior samples $x \sim p(x \mid \text{ERA5}, y)$ (ground stations). Same layout as slide 27.
 - [x] **M2.** Slides 37, 39: download the LoLA and Appa videos into `figures/` so they play offline.
 - [x] **M3.** Slide 42: rewrite the conclusions. Close the three case studies (one prior, any observation model; posteriors are as precise as $y$ allows; scale through latent spaces and composition), plus one or two open problems.
 
