@@ -78,7 +78,7 @@ The 3D structure $x$ of the molecule.
 
 ???
 
-This is the state $x$, the 3D structure of the molecule. Here, a ribosome of the malaria parasite, at near-atomic resolution. Every detail of it must be inferred from those noisy projections.
+And here is the molecule, in 3D. A ribosome of the malaria parasite, at near-atomic resolution. This is the state $x$. Every detail of it must be inferred from those noisy projections.
 
 ---
 
@@ -116,7 +116,7 @@ The full-resolution scans $x$.
 
 ???
 
-This is the state $x$, the full-resolution scan. The missing lines must be filled in, consistently with what a knee looks like.
+And here is the full-resolution scan, the state $x$. The missing lines must be filled in, consistently with what a knee looks like.
 
 ---
 
@@ -154,7 +154,7 @@ The state $x$ of the atmosphere, here water vapour, wind, temperature and humidi
 
 ???
 
-This is the state $x$, the full 3D atmosphere at the same instant. Here we show four of its variables, water vapour, wind, temperature and humidity. Recovering this state from observations is called data assimilation. We will come back to it at the end of the talk.
+And here is the atmosphere at that same instant, the state $x$, in 3D. We show four of its variables, water vapour, wind, temperature and humidity. Recovering this state from observations is called data assimilation. We will come back to it at the end of the talk.
 
 ---
 
@@ -192,7 +192,7 @@ Images $x$ of M87*, all consistent with the data.
 
 ???
 
-This is the state $x$, the image of the black hole. Here are several images, all consistent with the same measurements. The ring is always there. The fine details are not.
+And here is the black hole itself, or rather several images of it, all consistent with the same measurements. Each one is a possible state $x$. The ring is always there. The fine details are not.
 
 ---
 
@@ -230,7 +230,7 @@ Undistorted images $x$ of the background galaxy, all consistent with the data.
 
 ???
 
-This is the state $x$, the background galaxy as it would look without the lens. Here are several plausible galaxies. Lensed again, each of them reproduces the observed ring.
+And here is the background galaxy, as it would look without the lens. Several plausible versions of it, each a possible state $x$. Lensed again, each of them reproduces the observed ring.
 
 ---
 
