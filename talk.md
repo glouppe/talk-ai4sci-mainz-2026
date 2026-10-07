@@ -172,7 +172,7 @@ A few radio dishes across the Earth sample the Fourier transform $y$ of the imag
 
 ???
 
-Fourth, radio astronomy. The Event Horizon Telescope combines radio dishes all over the Earth, to image the black hole at the center of the galaxy M87. Each pair of dishes measures one Fourier coefficient of the image. As the Earth rotates, these measurements trace these tracks. This is everything that was measured on one night in April 2017. This is the observation $y$, and most of the plane is empty.
+Fourth, radio astronomy. The Event Horizon Telescope combines radio telescopes all over the Earth, to image the black hole at the center of the galaxy M87. Each pair of telescopes measures one Fourier coefficient of the image. As the Earth rotates, these measurements trace these tracks. This is everything that was measured on one night in April 2017. This is the observation $y$, and most of the plane is empty.
 
 What we want is the image behind these measurements.
 
