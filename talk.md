@@ -805,11 +805,17 @@ Diffusion-based forecasters such as GenCast sample the next state $p(x\_k | x\_{
 
 ???
 
-One last result, and maybe the most surprising. Weather forecasting now relies on large diffusion models, such as GenCast from Google DeepMind. They are trained to predict the next state from the current one, and they know nothing about observations. Yet they can assimilate data, in exactly the same way as the priors of this talk, although nobody built them for it.
+We end with forecasting.
 
-We use a particle filter, an ensemble of weighted states that tracks the current weather. At each step, we move each state forward with the forecaster, conditioned on the new observations. That conditioning is exactly the posterior sampling of the beginning of the talk. We did not train GenCast, and we do not need to.
+Today, the best weather forecasts come from machine learning models, such as GenCast from Google DeepMind, itself a diffusion model. GenCast takes the current state of the atmosphere and produces the next one. It was trained for that, and only for that. It has never seen an observation.
 
-The first row is the truth. The second is our filter. The third is GenCast alone, without observations. After a week, GenCast alone has lost track of the weather. The filter has not.
+To forecast, however, we first need to know the current state, and we only know it through observations. This is data assimilation again, now running online, one step at a time.
+
+A particle filter does this with an ensemble of possible states. At each step, each state is moved forward with the forecaster, and corrected with the new observations. The correction is the posterior sampling of the beginning of the talk, with GenCast as the prior. Nothing is retrained.
+
+On the figure, the first row is the truth, the second is our filter, and the third is GenCast without observations. After a week, GenCast alone has drifted away from the real weather. The filter stays on track.
+
+So an existing forecaster, trained by someone else for another purpose, becomes a data assimilation system.
 
 ---
 
