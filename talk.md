@@ -292,11 +292,11 @@ class: middle
 
 ???
 
-Although these problems come from very different fields, they are all solved with the same recipe.
+Here are the two ingredients for each example.
 
-The prior $p(x)$ encodes what plausible states look like. It carries the physics of the system, through the simulators that produce it or the data that record it. It is too complex to write down by hand, but a deep generative model, here a diffusion model, can learn it.
+The prior is the hard part. A distribution over 3D molecules, knee scans or atmospheric states is far too complex to write down by hand. It must be learned, from simulations or from data, by a deep generative model. In this talk, a diffusion model.
 
-The likelihood $p(y|x)$ encodes how the instrument turns a state into an observation. It carries the physics of the measurement process.
+The likelihood is usually the easy part. It is the instrument, which we know well, a projection, a Fourier transform, a radiative transfer model, plus noise.
 
 The rest of this talk is about how to combine the two, and how to make it work at very large scales.
 
