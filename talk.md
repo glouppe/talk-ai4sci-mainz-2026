@@ -532,11 +532,9 @@ class: middle
 
 .avatars[![](figures/faces/elise.jpg)![](figures/faces/sacha-peters.jpg)![](figures/faces/xf.png)]
 
-Posterior sampling conditions MARionette on measurements $y$ from the 14 stations of the Royal Meteorological Institute, which MAR cannot assimilate.
-
 .bleed[![](figures/mar-posterior.png)]
 
-.center[August 5, 2021, 21:00. Posterior samples $x \sim p(x | \text{ERA5}, y)$ put the rain where the stations see it.]
+.center[Posterior sampling conditioned on 14 weather stations $y$, which MAR cannot assimilate.]
 
 .footnote[Credits: Faulx, Peters et al, in preparation.]
 
