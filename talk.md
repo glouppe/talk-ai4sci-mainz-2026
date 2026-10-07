@@ -294,7 +294,7 @@ class: middle
 
 Here are the two ingredients for each example.
 
-The prior is the hard part. A distribution over 3D molecules, knee scans or atmospheric states is far too complex to write down by hand. It must be learned, from simulations or from data, by a deep generative model. In this talk, a diffusion model.
+The prior is often already there, as a scientific simulator, a climate model, an ocean model, a simulation of black holes. But a simulator can only produce samples. Its density cannot be evaluated, and its score is unavailable. A deep generative model, here a diffusion model, trained on its outputs, turns it into a prior we can use for inference. When no simulator exists, it can be trained on data instead.
 
 The likelihood is usually the easy part. It is the instrument, which we know well, a projection, a Fourier transform, a radiative transfer model, plus noise.
 
