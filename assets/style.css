@@ -796,10 +796,17 @@ img {
 
 .flow-left::after {
     left: -3px;
+    bottom: auto;
+    top: -9.5px;
     border-right: 14px solid #888;
 }
 
+/* Inference: the label sits below the arrow */
 .flow-left {
     margin-top: 1.4em;
     margin-bottom: 0;
+    padding-bottom: 0;
+    padding-top: 0.3em;
+    border-bottom: none;
+    border-top: 3px solid #888;
 }
