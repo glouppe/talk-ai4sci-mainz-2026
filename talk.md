@@ -534,7 +534,7 @@ class: middle
 
 .bleed[![](figures/mar-posterior.png)]
 
-.center[Posterior sampling conditioned on 14 weather stations $y$, which MAR cannot assimilate.]
+.center[Posterior sampling conditioned on 14 weather stations $y$,<br>which MAR cannot assimilate.]
 
 .footnote[Credits: Faulx, Peters et al, in preparation.]
 
