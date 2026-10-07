@@ -16,8 +16,8 @@
     <script src="./assets/auto-render.min.js"></script>
 
     <script>
-      // The deck is loaded with ?p=talk.md. Only Markdown files next to this page are accepted.
-      var deck = new URLSearchParams(window.location.search).get("p");
+      // The page always shows talk.md.
+      var deck = "talk.md";
 
       function message(text) {
         return "class: middle, center, title-slide\n\n# Inverting scientific images with deep generative models\n\n" + text;
@@ -36,20 +36,14 @@
         });
       }
 
-      if (!deck) {
-        start(message("No deck specified.\n\nUse `?p=talk.md` to load the talk."));
-      } else if (!/^[\w.-]+\.md$/.test(deck)) {
-        start(message("Invalid deck name."));
-      } else {
-        fetch(deck)
-          .then(function (response) {
-            if (!response.ok) throw new Error(response.status + " " + response.statusText);
-            return response.text();
-          })
-          .then(start, function (error) {
-            start(message("Could not load `" + deck + "` (" + error.message + ")."));
-          });
-      }
+      fetch(deck)
+        .then(function (response) {
+          if (!response.ok) throw new Error(response.status + " " + response.statusText);
+          return response.text();
+        })
+        .then(start, function (error) {
+          start(message("Could not load `" + deck + "` (" + error.message + ")."));
+        });
     </script>
   </body>
 </html>
