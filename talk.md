@@ -667,11 +667,11 @@ class: middle
 
 ## Long trajectories
 
-Training a diffusion model on trajectories of length $L$ is too expensive for long horizons. Instead, models of short windows must be composed at sampling time.
+Training a diffusion model on whole trajectories $x\_{1:L}$ is too expensive for long horizons. Instead, models of short windows $x\_{i-k:i+k}$ must be composed at sampling time.
 
 .center.width-100[![](figures/gibbs-strategies.png)]
 
-GiBBS redraws blocks of states from their exact local conditionals, in parallel. Unlike AR and AAO (SDA), it converges to the posterior.
+GiBBS redraws blocks $x\_{i:j}$ from their exact conditionals $p(x\_{i:j} | x\_{i-k:i-1}, x\_{j+1:j+k}, y)$, in parallel. Unlike AR and AAO (SDA), it converges to $p(x\_{1:L} | y)$.
 
 .footnote[Credits: Bodart et al, under review at ICLR 2027.]
 
