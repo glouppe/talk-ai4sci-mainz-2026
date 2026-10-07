@@ -697,7 +697,7 @@ For long trajectories, such as a whole season, we cannot train a model over the 
 
 Rolling out one window after the other ignores future observations, and errors accumulate. Composing all windows at once, as SDA does, has a subtler problem. Each window only sees its neighbors, so the information brought by an observation at one time step does not travel far enough. It fails to reach states far in the past or far in the future, where it should still matter.
 
-GiBBS is a Gibbs sampler. It repeatedly redraws blocks of states, given their neighbors and the observations. All blocks of the same color are redrawn in parallel, and the blocks shift from one cycle to the next. Over the cycles, the information of each observation propagates along the whole trajectory, and the chain converges to the true posterior.
+Our new solution, GiBBS, goes back to an old idea, Gibbs sampling. It repeatedly redraws blocks of states, given their neighbors and the observations. All blocks of the same color are redrawn in parallel, and the blocks shift from one cycle to the next. Over the cycles, the information of each observation propagates along the whole trajectory, and the chain converges to the true posterior.
 
 ---
 
