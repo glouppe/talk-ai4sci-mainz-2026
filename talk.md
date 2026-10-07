@@ -424,7 +424,7 @@ Since 1950, over 500 coastal sites have reported hypoxia, up from fewer than 50.
 
 Oxygen-depleted waters are spreading in the world's oceans. Since 1950, the number of coastal sites reporting hypoxia went from fewer than 50 to more than 500. Hypoxia kills bottom life, shrinks habitats and threatens fisheries.
 
-This is the northwestern shelf of the Black Sea, seen from space. Rivers bring nutrients, and nutrients fuel these phytoplankton blooms. In summer, the water column is stratified. Dead organic matter sinks and decomposes at the bottom, and consumes the oxygen there faster than it is renewed. The bottom waters become hypoxic.
+This is the Black Sea, seen from space. Rivers bring nutrients, and nutrients fuel these phytoplankton blooms, the turquoise swirls. The problem is most acute on the northwestern shelf, in the upper left, a shallow area fed by the Danube and the Dnieper. In summer, the water column there is stratified. Dead organic matter sinks and decomposes at the bottom, and consumes the oxygen there faster than it is renewed. The bottom waters become hypoxic.
 
 Detecting hypoxia matters, because we can act on it. In the short term, fisheries can avoid affected areas, and scientists can target their sampling. In the long term, monitoring tells whether reducing nutrient inputs from agriculture and wastewater actually works.
 
