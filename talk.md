@@ -14,7 +14,7 @@ background-size: cover
 
 Thank you for the invitation. It is a pleasure to be here.
 
-This talk is about inverse problems in science, and how deep generative models, diffusion models in particular, can solve them. We will start from small examples and end with the state of the ocean and of the whole atmosphere.
+This talk is about inverse problems in science, and how diffusion models help us solve them. We will start with a few pictures, and end with the state of the ocean and of the whole atmosphere.
 
 ---
 
@@ -58,7 +58,7 @@ Thousands of noisy 2D projections $y$ of a molecule, in unknown orientations.
 
 ???
 
-First, structural biology. Cryo-electron microscopy images biomolecules frozen in ice. Each particle image is a 2D projection of the molecule, in an unknown orientation, blurred by the microscope and buried in noise. The electron dose must stay low, or the sample is destroyed. A dataset contains hundreds of thousands of such images. They are the observation $y$, simulated here from a ribosome structure.
+First, structural biology. Cryo-electron microscopy images molecules frozen in ice. Each image is a 2D projection of the molecule, seen from an unknown angle, blurred by the microscope and buried in noise. The noise is unavoidable, because a stronger electron beam would destroy the sample. A typical dataset holds hundreds of thousands of such images. This is the observation $y$.
 
 What we want is the molecule behind these images.
 
@@ -78,7 +78,7 @@ The 3D structure $x$ of the molecule.
 
 ???
 
-The state $x$ is the 3D structure of the molecule, here the 80S ribosome of the malaria parasite, at near-atomic resolution. Every atom of it must be inferred from these noisy projections.
+This is the state $x$, the 3D structure of the molecule. Here, a ribosome of the malaria parasite, at near-atomic resolution. Every detail of it must be inferred from those noisy projections.
 
 ---
 
@@ -96,7 +96,7 @@ Undersampling k-space speeds up the scan but leaves aliased images $y$.
 
 ???
 
-Second, medical imaging. To speed up MRI scans, only a fraction of k-space is measured, here one line out of six. Inverting these partial measurements naively gives blurry, aliased images. This is the observation $y$.
+Second, medical imaging. An MRI scan measures the image in Fourier space, line by line. To make scans faster, we measure only some of the lines, here one out of six. A naive reconstruction then gives these blurry, aliased images. This is the observation $y$.
 
 What we want is the knee behind these images.
 
@@ -116,7 +116,7 @@ The full-resolution scans $x$.
 
 ???
 
-The state $x$ is the full-resolution scan of the knee. The missing lines of k-space must be filled in, consistently with the anatomy.
+This is the state $x$, the full-resolution scan. The missing lines must be filled in, consistently with what a knee looks like.
 
 ---
 
@@ -134,9 +134,9 @@ Satellites measure infrared radiances $y$, not the state of the atmosphere.
 
 ???
 
-Third, weather. Satellites do not measure the state of the atmosphere. They measure radiances, here infrared brightness temperatures seen by the geostationary satellites on March 21, 2021, at midnight UTC. Cold cloud tops appear white. This is the observation $y$.
+Third, weather. Satellites do not measure the atmosphere directly. They measure radiation. Here, the infrared radiation seen by the geostationary satellites, at one instant. Cold cloud tops appear white. This is the observation $y$.
 
-What we want is the atmosphere behind these radiances.
+What we want is the atmosphere behind these measurements.
 
 ---
 
@@ -154,7 +154,7 @@ The state $x$ of the atmosphere, here water vapour, wind, temperature and humidi
 
 ???
 
-The state $x$ is the full 3D state of the atmosphere at the same time, here represented by water vapour, surface wind, temperature and humidity. Recovering it from observations is data assimilation. We will come back to it at the end of the talk.
+This is the state $x$, the full 3D atmosphere at the same instant. Here we show four of its variables, water vapour, wind, temperature and humidity. Recovering this state from observations is called data assimilation. We will come back to it at the end of the talk.
 
 ---
 
@@ -172,7 +172,7 @@ A few radio dishes across the Earth sample the Fourier transform $y$ of the imag
 
 ???
 
-Fourth, radio astronomy. The Event Horizon Telescope combines radio dishes across the Earth to image the black hole at the center of the galaxy M87. Each pair of dishes measures one Fourier component of the image, and the rotation of the Earth sweeps these measurements along tracks. These are all the measurements of M87* collected on April 11, 2017. This is the observation $y$. Most of the Fourier plane is empty.
+Fourth, radio astronomy. The Event Horizon Telescope combines radio dishes all over the Earth, to image the black hole at the center of the galaxy M87. Each pair of dishes measures one Fourier coefficient of the image. As the Earth rotates, these measurements trace these tracks. This is everything that was measured on one night in April 2017. This is the observation $y$, and most of the plane is empty.
 
 What we want is the image behind these measurements.
 
@@ -192,7 +192,7 @@ Images $x$ of M87*, all consistent with the data.
 
 ???
 
-The state $x$ is the image of M87*. These are several images, all consistent with the same measurements. The ring is robust, the fine structure is not.
+This is the state $x$, the image of the black hole. Here are several images, all consistent with the same measurements. The ring is always there. The fine details are not.
 
 ---
 
@@ -210,7 +210,7 @@ A foreground galaxy distorts a background galaxy into an Einstein ring $y$.
 
 ???
 
-Fifth, cosmology. A massive foreground galaxy bends the light of a more distant galaxy into an Einstein ring. This noisy ring is the observation $y$, simulated here.
+Fifth, cosmology. A massive galaxy in the foreground bends the light of a more distant galaxy into a ring, an Einstein ring. This noisy ring is the observation $y$.
 
 What we want is the galaxy behind the ring.
 
@@ -230,7 +230,7 @@ Undistorted images $x$ of the background galaxy, all consistent with the data.
 
 ???
 
-The state $x$ is the background galaxy, as it would look without the lens. These are several plausible galaxies. Lensed again, each of them reproduces the observed ring down to the noise level.
+This is the state $x$, the background galaxy as it would look without the lens. Here are several plausible galaxies. Lensed again, each of them reproduces the observed ring.
 
 ---
 
@@ -378,9 +378,9 @@ To sample from the posterior $p(x|\textcolor{#d62728}{y})$, one can .bold[hard-w
 
 ???
 
-We now turn to inverse problems.
+Back to inverse problems. We want a diffusion model that gives us samples of $x$ given $y$.
 
-The direct approach adds $y$ as an extra input of the denoiser, here the coarse observation of the opening slide, and trains on pairs $(x, y)$. It works when such pairs are plentiful, but the network is tied to one observation model. If the instrument, its resolution or its noise level changes, it must be trained again.
+The direct approach feeds $y$ to the denoiser as an extra input, here the coarse observation of the opening slide, and trains it on pairs of $x$ and $y$. This works, but the network is then tied to one instrument. Change the instrument, its resolution or its noise, and the network must be trained again.
 
 ---
 
@@ -398,13 +398,13 @@ Since $\nabla\_{x\_t} \log p(x\_t | y) = \nabla\_{x\_t} \log p(x\_t) + \nabla\_{
 
 This slide carries the main idea of the talk.
 
-By Bayes' rule, the posterior score is the sum of the prior score and the likelihood score. The evidence $\log p(y)$ does not depend on $x\_t$ and vanishes. The prior score is given by the pretrained denoiser. The likelihood score is given by the model of the instrument.
+By Bayes' rule, the score of the posterior is the score of the prior plus the score of the likelihood. The prior score comes from the pretrained diffusion model. The likelihood score comes from the model of the instrument.
 
-We can therefore hijack the sampling of a pretrained diffusion model by adding the likelihood score to its score. Nothing is retrained. Few generative models can be conditioned this simply after training. Diffusion and score-based models can.
+So we can take a pretrained diffusion model, and hijack its sampling by adding the likelihood score along the way. Nothing is retrained. The same prior serves any instrument. Few generative models can be conditioned this simply after training. Diffusion models can.
 
-The likelihood score of the noisy state $x\_t$ is intractable, since it integrates over all clean states consistent with $x\_t$. Our approximation, MMPS, estimates the mean and covariance of $p(x | x\_t)$ with the denoiser.
+There is one technical difficulty. The likelihood score must be evaluated for noisy states, and it is intractable. It can be approximated, for instance with our method, MMPS, which uses the denoiser itself.
 
-We now apply this recipe to three problems studied in our group, at increasing scale. We start in the ocean.
+Let us now apply this recipe to three problems studied in our group. We start in the ocean.
 
 ---
 
@@ -422,15 +422,13 @@ Since 1950, over 500 coastal sites have reported hypoxia, up from fewer than 50.
 
 ???
 
-Oxygen-depleted waters are spreading. Since 1950, more than 500 coastal sites have reported hypoxia, up from fewer than 50, and the open ocean has lost about 2% of its oxygen. Hypoxia kills bottom fauna, shrinks habitats and threatens fisheries.
+Oxygen-depleted waters are spreading in the world's oceans. Since 1950, the number of coastal sites reporting hypoxia went from fewer than 50 to more than 500. Hypoxia kills bottom life, shrinks habitats and threatens fisheries.
 
-On the northwestern shelf of the Black Sea, nutrients brought by the rivers fuel phytoplankton blooms, visible here from space. In summer, the water column is stratified. Organic matter sinks and decomposes, and the oxygen it consumes at the bottom is not renewed. Oxygen drops below 63 mmol/m³, and the bottom waters become hypoxic.
+This is the northwestern shelf of the Black Sea, seen from space. Rivers bring nutrients, and nutrients fuel these phytoplankton blooms. In summer, the water column is stratified. Dead organic matter sinks and decomposes at the bottom, and consumes the oxygen there faster than it is renewed. The bottom waters become hypoxic.
 
-Monitoring relies on numerical models, which are slow, and on in-situ profiles, which are sparse. Satellites observe the surface every day, but neither oxygen nor what lies below the surface.
+Detecting hypoxia matters, because we can act on it. In the short term, fisheries can avoid affected areas, and scientists can target their sampling. In the long term, monitoring tells whether reducing nutrient inputs from agriculture and wastewater actually works.
 
-Detection matters because hypoxia can be acted upon. In the short term, knowing where and when bottom waters lose their oxygen lets fisheries and aquaculture avoid affected areas, and lets scientists target their sampling campaigns. In the long term, hypoxia is driven by nutrients from agriculture and wastewater. Monitoring it over years tells whether reductions of these inputs, required by European and Black Sea regulations, actually work.
-
-The question is whether hypoxia at depth can be detected from satellite observations of the surface.
+But monitoring is hard. Numerical models are slow, and in-situ measurements are sparse. Satellites see the surface every day, but they do not see oxygen, and they do not see below the surface. The question is whether they can detect hypoxia at depth anyway.
 
 ---
 
@@ -451,9 +449,9 @@ class: middle
 
 ???
 
-Satellites observe chlorophyll, salinity, temperature and sea surface height at the surface of the Black Sea, each at its own resolution and noise level. This is the observation $y$.
+On the left, what satellites observe at the surface, chlorophyll, salinity, temperature and sea level, each at its own resolution and noise level. This is $y$.
 
-We want the oxygen concentration below the surface, here at four depths between 0.3 and 46 m. Satellites observe neither oxygen nor what lies below the surface.
+On the right, what we want, the oxygen concentration at depth, here at four depths between the surface and 46 meters. This is $x$.
 
 ---
 
@@ -469,19 +467,13 @@ class: middle
 
 ???
 
-We train a diffusion prior on a multidecadal reanalysis of the Black Sea, from the coupled physical and biogeochemical model NEMO-BAMHBI. The state has 5 variables on 32 depth levels and a 128 × 256 grid at 2.8 km, about 4 million variables in total. Posterior samples are obtained zero-shot, with MMPS, from idealized satellite observations of the surface.
+We train a diffusion model on decades of simulations of the Black Sea, from a coupled physical and biogeochemical model. Each state has about 4 million variables. Then we sample from the posterior, given the surface observations.
 
-Near the surface, the samples reproduce the eddies and filaments of the true oxygen field. At 15 m, they disagree with each other and with the truth. At 46 m, they revert to the prior.
+Here are the truth and three posterior samples, at four depths. Near the surface, the samples reproduce the eddies and filaments of the true oxygen field. At 15 meters, they start to disagree with each other and with the truth. At 46 meters, they look like the prior.
 
-The reason is physical. The mixed layer is homogeneous, so its surface is representative of what lies beneath. Below the mixed layer, the surface carries little information about the state.
+This is physics, not a failure of the method. The mixed layer at the top is well mixed, so the surface tells us about it. Below it, the surface tells us very little. A wide posterior is the honest answer.
 
-Over the shelf, in summer, we detect 38% of all hypoxic events, with a precision of 47%. Surface observations reduce the error for all variables, including oxygen, which is never observed, but the gain vanishes below the mixed layer.
-
-This does not mean the method fails. The posterior is wide because $y$ carries too little information to determine $x$ precisely. A wide posterior is the correct answer to an ill-posed question. Improving detection will require longer time windows, so that the dynamics carry surface information to depth, or subsurface observations, such as Argo floats.
-
-For oceanography, the result is that satellites alone can detect a third of the summer hypoxic events of the Black Sea shelf, and that deeper waters will require subsurface observations.
-
-From the ocean, we move to the atmosphere, first over a single country.
+In practice, in summer, we detect about a third of the hypoxic events over the shelf, from satellites alone. To do better at depth, we will need longer time windows, or measurements below the surface, such as Argo floats.
 
 ---
 
@@ -499,9 +491,9 @@ Global models resolve the atmosphere at about 30 km. Floods, crops and energy ar
 
 ???
 
-Our second example is regional weather and climate. This is Belgium seen from space on December 6, 2011, as a cold front crosses the country.
+Our second example is regional weather and climate, here over Belgium. This is Belgium seen from space, on a December day, as a cold front crosses the country.
 
-Global reanalyses and climate models resolve the atmosphere at about 30 km. Impact studies, for floods, agriculture or energy, need a few kilometers. Regional climate models fill the gap. They take the coarse global fields at their boundaries and resolve the smaller scales over a limited domain.
+Global models resolve the atmosphere at about 30 kilometers. But floods, crops or wind farms depend on what happens at a few kilometers. Regional climate models fill this gap. They take the coarse global fields at their boundaries, and resolve the finer scales over a limited region.
 
 ---
 
@@ -522,9 +514,9 @@ class: middle
 
 ???
 
-On the left, precipitation from the global reanalysis ERA5, at 0.25°. On the right, half an hour later, the regional climate model MAR at 5 km, forced by ERA5 at its boundaries. The front is resolved as a thin band.
+On the left, rain from the global reanalysis ERA5. On the right, the same front simulated by the regional model MAR, at 5 kilometers. The front is now a thin band.
 
-MAR has three limits. It is slow. 100 years take two weeks on 100 CPUs, which rules out downscaling every member of a climate ensemble. It is deterministic. One forcing gives one field, although many fine-scale fields are consistent with the same coarse forcing. And it cannot assimilate observations.
+MAR has three limits. It is slow, two weeks on a hundred processors for a century of climate. It is deterministic, one forcing gives one answer, although many fine-scale states are compatible with it. And it cannot use observations.
 
 MARionette addresses all three.
 
@@ -544,11 +536,9 @@ class: middle
 
 ???
 
-MARionette is a diffusion model that emulates MAR over Belgium. Conditioned on ERA5, it generates hourly trajectories of all 41 MAR variables at 5 km, in seconds rather than hours.
+MARionette is a diffusion model trained to emulate MAR. Given the coarse ERA5 forcing, it generates hourly fields of all MAR variables at 5 kilometers, in seconds instead of hours.
 
-Here are ten days of July 2011. The top row is the ERA5 forcing, coarse and updated every six hours. Below are the regional model MAR and three MARionette samples, hourly and at 5 km. MARionette generates all variables jointly, including variables that are not among its forcings, such as downward solar radiation.
-
-The samples agree on the large scales set by ERA5, and differ from each other and from MAR in the details, such as the position of individual showers. These details are not determined by ERA5. Daily precipitation errors drop from 2.8 mm/day for interpolated ERA5 to 1.7 mm/day, and 2 m temperature errors from 1.5 °C to 1.0 °C.
+Here are ten days of July 2011. The top row is the ERA5 forcing, updated every six hours. Below are MAR and three MARionette samples. The samples agree on the large scales, which ERA5 determines, and differ in the details, such as where individual showers fall, which ERA5 does not determine. MARionette also generates variables that are not given as input, such as solar radiation.
 
 ---
 
@@ -564,13 +554,11 @@ class: middle
 
 ???
 
-Because MARionette is a diffusion model, we can sample from its posterior given station measurements. The observation model of ground stations is simple. The measured value is the state at the station location, plus noise. Adding its likelihood score to MARionette's score yields posterior samples conditioned both on ERA5 and on the stations.
+And because MARionette is a diffusion model, we can condition it on observations, here the measurements of 14 weather stations, exactly as in the recipe. MAR cannot do this.
 
-MAR cannot do this, since it is driven by its boundaries only. Here, on the evening of August 5, 2021, one station in the center of the country records heavy rain. MAR and the prior sample miss it. The posterior sample places a rain band over that station, and slightly warms the temperature field where the stations are warmer. These results are preliminary, obtained with an earlier version of the model.
+On this evening of August 2021, one station in the center of the country records heavy rain. MAR misses it, and so does a sample without observations. The posterior sample puts a rain band over that station. These results are still preliminary.
 
-For regional climate, the result is kilometer-scale weather over Belgium in seconds, as ensembles, and anchored to station measurements, which the regional model itself cannot do.
-
-From one country, we now move to the whole planet.
+So, for Belgium, we get kilometer-scale weather in seconds, as an ensemble, and anchored to measurements.
 
 ---
 
@@ -588,7 +576,7 @@ Every day, satellites and ground stations deliver millions of sparse, noisy and 
 
 ???
 
-Our third example is the atmosphere as a whole. Every day, satellites and weather stations deliver millions of observations. They are sparse, noisy and indirect, and they arrive along the whole trajectory of the system. This is the observation $y$.
+Our third example is the atmosphere as a whole. Every day, satellites and weather stations deliver millions of observations. They are sparse, noisy and indirect, and they keep arriving over time. This is $y$.
 
 ---
 
@@ -606,7 +594,7 @@ Reanalyses of the past and the initial conditions of every weather forecast requ
 
 ???
 
-The latent state is the trajectory $x\_{1:L}$ of the full 3D atmosphere, here represented by the surface wind speed at one instant. Estimating it from observations is the problem of data assimilation. It produces reanalyses of the past, used in climate science, and the initial conditions of every weather forecast.
+What we want is the trajectory of the full 3D atmosphere over time, here shown by the surface wind at one instant. Estimating it from observations is data assimilation. It produces the reanalyses that climate science relies on, and the starting point of every weather forecast.
 
 ---
 
@@ -621,9 +609,9 @@ $$p(x\_{1:L} | y\_{1:L}) \propto p(x\_1) p(y\_1 | x\_1) \prod\_{i=2}^{L} p(x\_{i
 
 ???
 
-The state evolves according to a transition model $p(x\_{i} | x\_{i-1})$ and is observed through an observation model $p(y\_i | x\_i)$. The posterior over whole trajectories combines both.
+The atmosphere evolves from one state to the next, and each state is observed by our instruments. We want the posterior over whole trajectories, given all observations.
 
-Classical methods, such as 4D-Var or ensemble Kalman filters, make Gaussian or linear assumptions. A diffusion prior over trajectories makes none.
+Operational methods make Gaussian or linear assumptions. A diffusion prior over trajectories makes none.
 
 ---
 
@@ -641,7 +629,7 @@ and approximately so for noisy $x\_{1:L}(t)$. The score of a long trajectory is 
 
 ???
 
-Score-based data assimilation follows the same principles as before. We train a diffusion model on short windows of the trajectory. When the dynamics are Markovian, each state depends on the rest of the trajectory only through its neighbors, and the score of a trajectory of any length is assembled from the scores of its windows. This is exact for clean trajectories. For noisy ones, it is an approximation, accurate at low noise levels and rough at high noise levels. Posterior sampling then yields plausible trajectories given the observations, without retraining.
+Our first step was score-based data assimilation, SDA. We train a diffusion model on short windows of a trajectory. Because the dynamics are Markovian, each state only interacts with its close neighbors in time. So the score of a long trajectory can be assembled from the scores of short windows, all computed in parallel. This is exact for clean trajectories, and approximate for noisy ones. Then we sample from the posterior, as before.
 
 ---
 
@@ -657,7 +645,7 @@ class: middle
 
 ???
 
-A toy problem. We reconstruct trajectories of a 2D turbulent flow. The top row is the true trajectory. The second row shows the observations, coarse, noisy and available only every few states.
+A toy example, a 2D turbulent flow. The top row is the true trajectory. The second row shows what we observe, coarse, noisy, and only every few time steps.
 
 ---
 
@@ -674,7 +662,7 @@ count: false
 
 ???
 
-SDA recovers trajectories that are consistent with the observations, and the samples differ where the observations leave room.
+And these are posterior samples. They are consistent with the observations, and they differ where the observations leave room.
 
 ---
 
@@ -694,11 +682,11 @@ GiBBS redraws blocks $x\_{i:j}$ from their exact conditionals $p(x\_{i:j} | x\_{
 
 ???
 
-SDA works well on short trajectories. For long ones, such as a season of weather, training a diffusion model over the whole horizon is out of reach, and short-window models must be composed at sampling time. How to compose them is the crux of long-range assimilation, and the composition used by SDA is approximate.
+For long trajectories, such as a whole season, we cannot train a model over the whole horizon. We must compose short windows at sampling time, and how we compose them matters.
 
-The autoregressive rollout generates one window at a time, conditioned on the past. It is blind to future observations by construction, and errors accumulate along the rollout. The all-at-once composition of SDA samples all windows in parallel, but its decomposition of the score is only accurate at low noise levels.
+Rolling out one window after the other ignores future observations, and errors accumulate. Composing all windows at once, as SDA does, is only accurate at low noise levels.
 
-GiBBS is a Gibbs sampler. By the Markov property, each block of states depends on the rest of the trajectory only through its blanket, the neighboring states. Each update is therefore a short-window posterior sample, and all blocks of the same color can be redrawn in parallel. Shifting the blocks between cycles lets information propagate along the whole trajectory.
+GiBBS is a Gibbs sampler. It repeatedly redraws blocks of states, given their neighbors and the observations. Each update is exact, all blocks of the same color are redrawn in parallel, and the chain converges to the true posterior.
 
 ---
 
@@ -714,9 +702,9 @@ class: middle
 
 ???
 
-The observations cover the central part of the domain, on one frame in three. GiBBS keeps the vortices coherent over the whole trajectory. AAO smooths them out, and AR diverges as errors accumulate.
+Here the observations only cover the middle of the trajectory. GiBBS keeps the vortices coherent all along. The all-at-once composition smooths them out, and the rollout drifts away.
 
-Long trajectories are one side of scale. The other is the size of each state.
+Long trajectories are one side of scale. The other side is the size of each state.
 
 ---
 
@@ -732,9 +720,7 @@ At 0.25°, 6 variables on 13 pressure levels, hourly over two weeks, a trajector
 
 ???
 
-The next step is the whole Earth.
-
-At 0.25° resolution, with 6 variables on 13 pressure levels, hourly over two weeks, a trajectory has about $27 \times 10^9$ variables. This is orders of magnitude beyond what diffusion models handle in data space.
+The next step is the whole Earth. At the resolution of modern weather models, a two-week trajectory of the atmosphere has about 27 billion variables. That is far beyond what a diffusion model can handle directly.
 
 ---
 
@@ -761,7 +747,7 @@ class: middle
 
 ???
 
-We add a level of abstraction. A latent diffusion model learns the prior in a compressed latent space $z$, of much lower dimension than $x$. If the data compress well, we sample in latent space and decode back to data space. LoLA shows that emulation remains accurate even at high compression rates.
+So we compress. A latent diffusion model learns the prior in a compressed space, much smaller than the original one, and decodes its samples back. Our work on LoLA showed that this works well for physics, even at high compression.
 
 ---
 
@@ -779,9 +765,7 @@ An autoencoder compresses each atmospheric state $x$ 450 times into a latent sta
 
 ???
 
-Based on this idea, we built Appa, an extension of SDA on top of a latent diffusion model of atmospheric dynamics.
-
-A 500M-parameter autoencoder compresses each state 450 times. A 1B-parameter latent diffusion model generates latent trajectories. The decoder and the observation operator together form a nonlinear observation model in latent space, which we handle by linearization. This makes data assimilation possible at the scale of the whole Earth.
+Based on this idea, we built Appa, for the global atmosphere. An autoencoder compresses each state 450 times. A latent diffusion model, with a billion parameters, generates trajectories in that compressed space. Data assimilation then happens in latent space, at the scale of the whole Earth.
 
 ---
 
@@ -799,9 +783,9 @@ class: middle
 
 ???
 
-A reanalysis with Appa, for a few variables. Rows 1 and 4 are the ERA5 ground truth. Rows 2 and 5 are the observations, satellite tracks and weather stations. Rows 3 and 6 are posterior samples from Appa.
+Here is a week of reanalysis with Appa. Rows 1 and 4 are the truth. Rows 2 and 5 are the observations, satellite tracks and weather stations. Rows 3 and 6 are Appa's posterior samples.
 
-Appa reconstructs what happened. Forecasting needs what is happening now.
+Appa reconstructs what happened. A forecast needs to know what is happening now.
 
 ---
 
@@ -821,15 +805,11 @@ Diffusion-based forecasters such as GenCast sample the next state $p(x\_k | x\_{
 
 ???
 
-Weather forecasting now relies on large diffusion models, such as GenCast. They are trained to forecast, that is, to sample the next state given the current one. They know nothing about observations. Our point is that they can assimilate data in the same way as the priors of this talk, even though they were not built for it.
+Weather forecasting now relies on large diffusion models, such as GenCast. They are trained to predict the next state from the current one. They know nothing about observations. Our point is that they can still assimilate data, in the same way as the priors of this talk, although they were not built for it.
 
-A particle filter tracks the current state with weighted samples. It propagates each particle with the transition model, then reweights it by the likelihood of the new observations. In high dimensions, all weights but one vanish.
+We use a particle filter, an ensemble of weighted states that tracks the current weather. At each step, we move each state forward with the forecaster, conditioned on the new observations. That conditioning is exactly the posterior sampling of the beginning of the talk. We did not train GenCast, and we do not need to.
 
-The optimal proposal draws each particle from the transition model conditioned on the new observation. This is the posterior sampling of the beginning of the talk, with the forecaster as prior. GenCast can therefore serve as the transition model of a particle filter, without any retraining. We did not train GenCast, and we do not need to.
-
-The first row is the true trajectory from ERA5. The second is the ensemble mean of our filter, which assimilates realistic observations along the way. The third is the GenCast ensemble mean without observations. After 7 days, GenCast loses track of the weather and its mean blurs to climatology. The filter stays on the true trajectory.
-
-For weather and climate, the result is global reanalyses from sparse and realistic observations, and data assimilation with existing forecasters such as GenCast, which were never built for it.
+The first row is the truth. The second is our filter. The third is GenCast alone, without observations. After a week, GenCast alone has lost track of the weather. The filter has not.
 
 ---
 
@@ -852,23 +832,19 @@ class: middle
 
 ???
 
-Each of the three examples brought something to its field.
+Let me summarize what each example brought to its field.
 
-In the Black Sea, satellites alone detect a third of the summer hypoxic events of the shelf. Deeper waters will require subsurface observations.
+In the Black Sea, satellites alone detect a third of summer hypoxic events. Over Belgium, we get kilometer-scale weather in seconds, anchored to stations. For the whole atmosphere, we get reanalyses from sparse observations, and existing forecasters become data assimilation systems.
 
-Over Belgium, MARionette produces kilometer-scale weather in seconds, as ensembles, and anchored to station measurements, which the regional model itself cannot do.
+And the open questions are as interesting as the results.
 
-For the global atmosphere, diffusion models produce reanalyses from sparse and realistic observations, and turn existing forecasters into data assimilation systems.
+First, validation. In science, we rarely know the true state. We need ways to check that our posteriors are calibrated.
 
-The open questions are as interesting as the results.
+Second, misspecification. A prior trained on a simulator inherits its biases. When reality departs from the simulator, the posterior can be confidently wrong.
 
-Validation comes first. In science, the true state is rarely available, so we need ways to check that posteriors are calibrated, for example with coverage tests on held-out simulations, and to detect when they are not.
+Third, learning priors from observations alone, without any simulator. This is possible, for instance with expectation-maximization.
 
-Misspecification comes next. Priors trained on simulations inherit their biases. When the real world departs from the simulator, the posterior can be confidently wrong.
-
-Learning priors from observations alone is a way around it. With expectation-maximization, a diffusion prior can be fit to incomplete and noisy observations, without any clean data.
-
-Finally, speed. Operational weather prediction assimilates hundreds of millions of observations every few hours. Making posterior sampling fast enough for this setting is an engineering and a scientific challenge.
+And finally, speed. Weather centers assimilate hundreds of millions of observations every few hours. Our methods must become fast enough for that.
 
 ---
 
@@ -882,9 +858,9 @@ $$p(x | y) \propto p(x) \, p(y | x)$$
 
 ???
 
-To close, the equation of the beginning, now with every term filled in.
+To close, the equation we started from.
 
-The prior carries the physics of the system, learned once from simulations or data by a diffusion model. The likelihood carries the physics of the instrument. Posterior sampling combines the two, without retraining. We have seen it recover molecules, knee scans, black holes, galaxies, the oxygen of the Black Sea, the rain over Belgium and the state of the whole atmosphere.
+A prior that captures the physics of the system, a likelihood for the physics of the instrument, and posterior sampling to combine them, without retraining. We have seen it recover molecules, knees, black holes, galaxies, the oxygen of the Black Sea, the rain over Belgium and the whole atmosphere.
 
 Thank you.
 
