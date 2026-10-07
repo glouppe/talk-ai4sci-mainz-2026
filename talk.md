@@ -822,7 +822,7 @@ Today, the best weather forecasts come from machine learning models, such as Gen
 
 But a forecast is only as good as its starting point. Weather centers produce that starting point with data assimilation, running continuously. Every few hours, they take the last forecast, compare it with the new observations, and correct it. The corrected state, the analysis, starts the next forecast. This cycle has run for decades, with physical models and Gaussian assumptions.
 
-The answer is yes. A forecaster alone is enough to run this cycle.
+We asked whether a forecaster like GenCast, which has never seen an observation, could run this cycle on its own. The answer is yes.
 
 We embed it in a particle filter, an ensemble of possible states that plays the role of the analysis. At each cycle, each member is moved forward by the forecaster, and conditioned on the new observations. That conditioning is the posterior sampling of the beginning of the talk, with GenCast as the prior. No retraining, no extra model, just the forecaster and the observations.
 
