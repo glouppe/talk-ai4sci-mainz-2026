@@ -244,13 +244,13 @@ Given noisy observations $y$, estimate the posterior distribution $$p(x|y) \prop
 
 ???
 
-All these examples are the same problem.
+All these examples are the same problem, and this diagram shows it.
 
-On the left, a physical model, with parameters $\theta$, produces the state $x$ of the system, a cell, a galaxy, the Earth. On the right, an observation model, the instrument, turns this state into the observation $y$, through a microscope, a telescope or a satellite. Measurements are neither direct nor perfect. They are noisy, limited in resolution, incomplete or indirect.
+A physical model produces the state $x$ of a system, a cell, a galaxy, the Earth. An observation model, the instrument, turns this state into the observation $y$, through a microscope, a telescope or a satellite. Both run forward, from causes to effects.
 
-Both models run forward, from causes to effects. The inverse problem runs backward. Given $y$, we want the posterior $p(x|y)$ over the states that could have produced it. By Bayes' rule, it is proportional to the prior $p(x)$, given by the physical model, times the likelihood $p(y|x)$, given by the observation model.
+We want to go backward. Given $y$, which states $x$ could have produced it? There is no single answer, because the observation is noisy and incomplete. There is a distribution of answers, the posterior $p(x|y)$.
 
-The problem is hard for two reasons. Forward models can simulate observations, but they cannot be inverted directly. And the problem is ill-posed. There is no single solution, only a distribution of plausible ones.
+By Bayes' rule, the posterior combines two terms, one for each box. The prior $p(x)$ comes from the physical model. The likelihood $p(y|x)$ comes from the observation model.
 
 ---
 
@@ -292,13 +292,13 @@ class: middle
 
 ???
 
-Here are the two ingredients for each example.
+Here are the prior and the likelihood of each example.
 
-The prior is often already there, as a scientific simulator, an ocean model, a climate model, a simulation of black holes. But a simulator is a regular computer program. It runs forward, from causes to effects, and offers no handle to run it backward, conditioned on an observation. In that form, the prior is of little help for inversion. We need a representation of the prior that is better suited, and deep generative models will give us one.
+The likelihood is the easy part. It is the instrument, which we usually know well, a projection, a Fourier transform, a radiative transfer model, plus noise.
 
-The likelihood is usually the easy part. It is the instrument, which we know well, a projection, a Fourier transform, a radiative transfer model, plus noise.
+The prior is the hard part. It is often already available, as a scientific simulator, an ocean model, a climate model, a simulation of black holes. But a simulator is a regular computer program. It runs forward and offers no way to run it backward, conditioned on an observation. In that form, the prior is of little help for inversion.
 
-The rest of this talk is about how to combine the two, and how to make it work at very large scales.
+We need a representation of the prior that we can work with. Deep generative models will give us one.
 
 ---
 
