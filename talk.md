@@ -165,7 +165,7 @@ background-size: cover
 .overlay-box.overlay-top-left[
 .overlay-title[Black hole imaging]
 
-A few radio dishes across the Earth sample the Fourier transform $y$ of the image.
+A few radio telescopes across the Earth sample the Fourier transform $y$ of the image.
 ]
 
 .footnote[Data: [EHT Collaboration](https://github.com/eventhorizontelescope/2019-D01-01), M87*, April 11, 2017.]
