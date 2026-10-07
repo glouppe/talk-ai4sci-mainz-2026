@@ -840,19 +840,19 @@ class: middle
 
 ???
 
-Let me summarize what each example brought to its field.
+Let me come back to the three examples.
 
-In the Black Sea, satellites alone detect a third of summer hypoxic events. Over Belgium, we get kilometer-scale weather in seconds, anchored to stations. For the whole atmosphere, we get reanalyses from sparse observations, and existing forecasters become data assimilation systems.
+In the Black Sea, satellites alone can now detect a third of the summer hypoxic events. Over Belgium, we get kilometer-scale weather in seconds, as an ensemble, and anchored to weather stations. And for the whole atmosphere, we can reconstruct the past from sparse observations, and turn existing forecasters into data assimilation systems.
 
-And the open questions are as interesting as the results.
+None of this is finished. Four questions keep us busy.
 
-First, validation. In science, we rarely know the true state. We need ways to check that our posteriors are calibrated.
+Can we trust the posteriors? In science, we rarely know the true state, so we need ways to check that the uncertainty we report is the right one.
 
-Second, misspecification. A prior trained on a simulator inherits its biases. When reality departs from the simulator, the posterior can be confidently wrong.
+What if the prior is wrong? A prior learned from a simulator inherits its biases, and the posterior can then be confidently wrong.
 
-Third, learning priors from observations alone, without any simulator. This is possible, for instance with expectation-maximization.
+Can we do without simulators? In some fields, we only have noisy and incomplete observations. Learning the prior directly from them is possible, and we have started to do it.
 
-And finally, speed. Weather centers assimilate hundreds of millions of observations every few hours. Our methods must become fast enough for that.
+And can we go fast enough? Weather centers assimilate hundreds of millions of observations every few hours. Our methods are not there yet.
 
 ---
 
