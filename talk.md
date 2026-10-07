@@ -294,7 +294,7 @@ class: middle
 
 Here are the two ingredients for each example.
 
-The prior is often already there, as a scientific simulator, a climate model, an ocean model, a simulation of black holes. But a simulator can only produce samples. Its density cannot be evaluated, and its score is unavailable. A deep generative model, here a diffusion model, trained on its outputs, turns it into a prior we can use for inference. When no simulator exists, it can be trained on data instead.
+The prior is often already there, as a scientific simulator, an ocean model, a climate model, a simulation of black holes. But a simulator is a regular computer program. It runs forward, from causes to effects, and offers no handle to run it backward, conditioned on an observation. In that form, the prior is of little help for inversion. We need a representation of the prior that is better suited, and deep generative models will give us one.
 
 The likelihood is usually the easy part. It is the instrument, which we know well, a projection, a Fourier transform, a radiative transfer model, plus noise.
 
