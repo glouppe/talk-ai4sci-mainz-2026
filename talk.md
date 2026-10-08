@@ -321,9 +321,9 @@ $$\text{d} x\_t = f\_t x\_t \text{d}t + g\_t \text{d}w\_t.$$
 
 Diffusion models are the representation we will use. Trained on the outputs of a simulator, or on data, they learn to generate new samples of the system. And, as we will see, their way of generating can be steered by an observation.
 
-They work by learning to reverse a gradual noising process.
+A diffusion model is made of two parts. The first is a gradual noising process. The second is the reverse of it, which removes the noise.
 
-The forward process adds noise to the data until nothing but noise remains. It is described by a stochastic differential equation, where $x\_t$ is the perturbed sample at time $t$. On the left, the flow of the opening slides dissolves into noise. On the right, the density of a simple 1D distribution, two modes that merge into a single Gaussian, with a few sample paths.
+The first part is easy. Starting from a sample of the data, we add a little noise, then a little more, until nothing but noise remains. This is described by a stochastic differential equation, where $x\_t$ is the perturbed sample at time $t$. On the left, the flow of the opening slides dissolves into noise. On the right, the same process on a simple 1D distribution, two modes that slowly merge into a single Gaussian.
 
 ---
 
@@ -342,7 +342,7 @@ Simulating it from noise $x\_1$ to $t = 0$ generates samples $x\_0 \sim p(x)$.
 
 ???
 
-The time reversal of the forward process is again a stochastic differential equation. It involves the score of the perturbed data distribution at each time $t$.
+The second part runs this process backward in time. The reverse is again a stochastic differential equation, and it involves one new quantity, the score of the noisy data at each time $t$.
 
 And this is how we generate data. We start from pure noise, a random draw that carries no information at all. Then we run the reverse process, step by step, back to $t = 0$. The noise is gradually removed, structure appears, and a flow emerges.
 
