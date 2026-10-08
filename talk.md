@@ -236,7 +236,7 @@ Given noisy observations $y$, estimate the posterior distribution $$p(x|y) \prop
 
 All these examples are the same problem, and this diagram shows it.
 
-A physical model produces the state $x$ of a system, a cell, a galaxy, the Earth. An observation model, the instrument, turns this state into the observation $y$, through a microscope, a telescope or a satellite. Both run forward, from causes to effects.
+A physical model describes the state $x$ of a system, a cell, a galaxy, the Earth. An observation model, the instrument, turns this state into the observation $y$, through a microscope, a telescope or a satellite. Both run forward, from causes to effects.
 
 We want to go backward. Given $y$, which states $x$ could have produced it? There is no single answer, because the observation is noisy and incomplete. There is a distribution of answers, the posterior $p(x|y)$.
 
