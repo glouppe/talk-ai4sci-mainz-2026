@@ -603,7 +603,7 @@ Reanalyses of the past and the initial conditions of every weather forecast requ
 
 ???
 
-What we want is the trajectory of the full 3D atmosphere over time, here shown by the surface wind at one instant. Estimating it from observations is data assimilation. It produces the reanalyses that climate science relies on, and the starting point of every weather forecast.
+From all these observations, we want to reconstruct the atmosphere itself, in 3D and over time, as a trajectory. Here you see one moment of it, through the surface wind. Estimating it from observations is data assimilation. It produces the reanalyses that climate science relies on, and the starting point of every weather forecast.
 
 ---
 
