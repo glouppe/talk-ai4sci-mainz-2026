@@ -427,13 +427,11 @@ Since 1950, over 500 coastal sites have reported hypoxia, up from fewer than 50.
 
 ???
 
-Oxygen-depleted waters are spreading in the world's oceans. Since 1950, the number of coastal sites reporting hypoxia went from fewer than 50 to more than 500. Hypoxia kills bottom life, shrinks habitats and threatens fisheries.
+Oxygen-depleted waters are spreading. Since 1950, the number of coastal sites reporting hypoxia has grown from fewer than 50 to more than 500. Hypoxia kills bottom life and threatens fisheries.
 
-This is the Black Sea, seen from space. Rivers bring nutrients, and nutrients fuel these phytoplankton blooms, the turquoise swirls. The problem is most acute on the northwestern shelf, in the upper left, a shallow area fed by the Danube and the Dnieper. In summer, the water column there is stratified. Dead organic matter sinks and decomposes at the bottom, and consumes the oxygen there faster than it is renewed. The bottom waters become hypoxic.
+This is the Black Sea, seen from space. Rivers bring nutrients, which fuel these phytoplankton blooms, the turquoise swirls. On the northwestern shelf, in the upper left, the summer water column is stratified. Dead organic matter decomposes at the bottom and consumes the oxygen faster than it is renewed.
 
-Detecting hypoxia matters, because we can act on it. In the short term, fisheries can avoid affected areas, and scientists can target their sampling. In the long term, monitoring tells whether reducing nutrient inputs from agriculture and wastewater actually works.
-
-But monitoring is hard. Numerical models are slow, and in-situ measurements are sparse. Satellites see the surface every day, but they do not see oxygen, and they do not see below the surface. The question is whether they can detect hypoxia at depth anyway.
+Detecting hypoxia matters, because we can act on it, from guiding fisheries to checking that reductions of agricultural nutrients actually work. But in-situ measurements are sparse, and satellites only see the surface, not oxygen, and not what lies below. The question is whether they can detect hypoxia at depth anyway.
 
 ---
 
