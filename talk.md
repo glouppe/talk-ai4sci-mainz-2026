@@ -76,7 +76,7 @@ The 3D structure $x$ of the molecule.
 
 ???
 
-What we want is the molecule behind these images, as shown here in 3D. A ribosome of the malaria parasite, at near-atomic resolution. This is the state $x$. Every detail of it must be inferred from those noisy projections.
+From all those images, we want to recover the molecule itself, in 3D. Here, a ribosome of the malaria parasite, at near-atomic resolution. That is our state $x$, and every detail of it has to be inferred from those noisy projections.
 
 ---
 
@@ -112,7 +112,7 @@ The full-resolution scans $x$.
 
 ???
 
-What we want is the knee behind these images, as shown here at full resolution. This is the state $x$. The missing lines must be filled in, consistently with what a knee looks like.
+What we would like to see instead is the knee itself, at full resolution. That is our state $x$. To get there, the missing lines have to be filled in, in a way that is consistent with what a knee looks like.
 
 ---
 
@@ -148,7 +148,7 @@ The state $x$ of the atmosphere, here water vapour, wind, temperature and humidi
 
 ???
 
-What we want is the atmosphere behind these measurements, as shown here at that same instant. This is the state $x$, in 3D. We show four of its variables, water vapour, wind, temperature and humidity. Recovering this state from observations is called data assimilation. We will come back to it at the end of the talk.
+What we really want is the atmosphere itself, at that same instant, in 3D. That is our state $x$. We show four of its variables, water vapour, wind, temperature and humidity. Recovering this state from observations is called data assimilation. We will come back to it at the end of the talk.
 
 ---
 
@@ -184,7 +184,7 @@ Images $x$ of M87*, all consistent with the data.
 
 ???
 
-What we want is the image behind these measurements, as shown here. Or rather several images, all consistent with the same measurements. Each one is a possible state $x$. The ring is always there. The fine details are not.
+From those few measurements, we want the image of the black hole. Or rather, images, because many of them fit the same data. Here are a few, each one a possible state $x$. The ring is always there. The fine details change from one to the next.
 
 ---
 
@@ -220,7 +220,7 @@ Undistorted images $x$ of the background galaxy, all consistent with the data.
 
 ???
 
-What we want is the galaxy behind the ring, as shown here without the lens. Several plausible versions of it, each a possible state $x$. Lensed again, each of them reproduces the observed ring.
+What we want is the galaxy as it would look without the lens. Here again, there is not a single answer, but several plausible galaxies, each a possible state $x$. Pass any of them through the lens again, and you get back the ring we observed.
 
 ---
 
