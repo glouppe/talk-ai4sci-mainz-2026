@@ -299,7 +299,7 @@ The likelihood is the easy part. It is the instrument, which we usually know wel
 
 The prior is the hard part. It is often already available, as a scientific simulator, an ocean model, a climate model, a simulation of black holes. But a simulator is a regular computer program. It runs forward and offers no way to run it backward, conditioned on an observation. In that form, the prior is of little help for inversion.
 
-We need a representation of the prior that we can work with. Deep generative models will give us one.
+For inference, we need a representation of the prior that we can work with. Deep generative models will give us one.
 
 ---
 
