@@ -403,13 +403,11 @@ this reverse process follows the posterior score, and its samples are posterior 
 
 ???
 
-This slide carries the main idea of the talk.
+There is a better way, and it is the main idea of this talk. We do not retrain anything.
 
-By Bayes' rule, the score of the posterior is the score of the prior plus the score of the likelihood. The prior score comes from the pretrained diffusion model. The likelihood score comes from the model of the instrument.
+By Bayes' rule, the score of the posterior is simply the score of the prior plus the score of the likelihood. The prior score comes from the pretrained diffusion model. The likelihood score comes from the model of the instrument. So we take the pretrained model and hijack its sampling, by adding the likelihood score at every step. Its samples become posterior samples.
 
-So we can take a pretrained diffusion model, and hijack its sampling by adding the likelihood score along the way. Nothing is retrained. The same prior serves any instrument. Few generative models can be conditioned this simply after training. Diffusion models can.
-
-There is one technical difficulty. The likelihood score must be evaluated for noisy states, and it is intractable. It can be approximated, for instance with our method, MMPS, which uses the denoiser itself.
+The same prior then serves any instrument, zero-shot. Few generative models can be conditioned this simply. Diffusion models can. The one difficulty is that the likelihood score of a noisy state is intractable, but good approximations exist, such as our method, MMPS.
 
 Let us now apply this recipe to three problems studied in our group. We start in the ocean.
 
