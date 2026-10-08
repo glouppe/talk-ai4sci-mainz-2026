@@ -363,11 +363,11 @@ $$\nabla\_{x\_t} \log p(x\_t) = \Sigma\_t^{-1}(\mathbb{E}[x | x\_t] - x\_t) \app
 
 ???
 
-The reverse process needs the score, which we do not know.
+There is one catch. The reverse process needs the score, and we do not know it.
 
-We train a neural network to denoise perturbed samples $x\_t$ at all noise levels $t$, by predicting the clean sample $x$. The network sees the noisy flow and the noise level, and returns the clean flow. This is denoising score matching.
+We can approximate the score via a neural network trained to denoise. We take a sample, add noise to it at some level $t$, and ask the network to recover the clean sample. The network sees the noisy flow and the noise level, and returns its best guess of the clean flow. We repeat this for all noise levels.
 
-The optimal denoiser is the conditional mean $\mathbb{E}[x | x\_t]$. Tweedie's formula turns it into an estimate of the score.
+The best possible denoiser returns the average of all clean samples compatible with the noisy one. And a classical result, Tweedie's formula, turns this average into the score. So a good denoiser gives us the score, and the score gives us the reverse process.
 
 ---
 
