@@ -431,7 +431,11 @@ Oxygen-depleted waters are spreading. Since 1950, the number of coastal sites re
 
 This is the Black Sea, seen from space. Rivers bring nutrients, which fuel these phytoplankton blooms, the turquoise swirls. On the northwestern shelf, in the upper left, the summer water column is stratified. Dead organic matter decomposes at the bottom and consumes the oxygen faster than it is renewed.
 
-Detecting hypoxia matters, because we can act on it, from guiding fisheries to checking that reductions of agricultural nutrients actually work. But in-situ measurements are sparse, and satellites only see the surface, not oxygen, and not what lies below. The question is whether they can detect hypoxia at depth anyway.
+Hypoxia can be reduced, by cutting the nutrients that rivers bring from agriculture and cities. But to know whether such policies work, and to protect fisheries in the meantime, we need to know where and when hypoxia occurs, every summer, over the whole shelf.
+
+Today, we cannot. Oxygen at the bottom is measured by ships and floats, at a few places and a few times a year. Satellites, on the other hand, observe the whole sea every day, but only its surface, and they do not measure oxygen at all.
+
+So the question is simple, and important. Can we detect hypoxia at the bottom of the sea from what satellites see at the surface?
 
 ---
 
