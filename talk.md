@@ -521,7 +521,7 @@ class: middle
 
 ???
 
-On the left, rain from the global reanalysis ERA5. On the right, the same front simulated by the regional model MAR, at 5 kilometers. The front is now a thin band.
+On the left, rain from the global reanalysis ERA5. On the right, the same front simulated by MAR, a regional climate model developed at the University of Liège, here run at 5 kilometers over Belgium. The front is now a thin band.
 
 MAR has three limits. It is slow, two weeks on a hundred processors for a century of climate. It is deterministic, one forcing gives one answer, although many fine-scale states are compatible with it. And it cannot use observations.
 
