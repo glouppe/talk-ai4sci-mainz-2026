@@ -640,7 +640,7 @@ and approximately so for noisy $x\_{1:L}(t)$. The score of a long trajectory is 
 
 ???
 
-The first step is our score-based data assimilation, SDA. We train a diffusion model on short windows of a trajectory. Because the dynamics are Markovian, each state only interacts with its close neighbors in time. So the score of a long trajectory can be assembled from the scores of short windows, all computed in parallel. This is exact for clean trajectories, and approximate for noisy ones. Then we sample from the posterior, as before.
+The first step is our score-based data assimilation, SDA. We train a diffusion model on short windows of a trajectory. Because the dynamics are Markovian, each state only interacts with its close neighbors in time. So the score of a long trajectory can be assembled from the scores of short windows, all computed in parallel. This is exact for clean trajectories, and approximate for noisy ones. The rest is the recipe we already know. We add the likelihood score of the observations, and the trajectories we sample become posterior trajectories, without retraining anything.
 
 ---
 
